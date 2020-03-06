@@ -68,120 +68,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-url-e5-8e-bb-e9-87-8d" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/04/url-e5-8e-bb-e9-87-8d/" class="article-date">
-  <time datetime="2018-08-04T09:47:01.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/">安全/代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/04/url-e5-8e-bb-e9-87-8d/">url去重处理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="python3代码"><a href="#python3代码" class="headerlink" title="python3代码:"></a>python3代码:</h3><pre><code># coding: utf-8
-&apos;&apos;&apos;
-Created on 2018年7月1日
-
-@author: guimaizi
-&apos;&apos;&apos;
-import urllib.parse,os.path,re
-class filter_url:
-    def __init__(self):
-        self.list_url_static=[]
-    def filter_url(self,url):
-        url=urllib.parse.urlparse(url)
-        if url.query!=&apos;&apos;:
-            print(self.params_filter(url))
-            pass
-        elif url.query==&apos;&apos;:
-            self.static_filter(url)
-        elif url.path==&apos;&apos;:
-            print(url)
-    def static_filter(self,url):
-        #伪静态与url路径处理
-        urls=os.path.splitext(url.path)
-        if urls[1]!=&apos;&apos;:
-            list_url=[]
-            for i in urls[0].split(&apos;/&apos;):
-                if i!=&apos;&apos;:list_url.append(&apos;{%s:%s}&apos;%(self.judgetype(i),len(i)))
-            url_path=&quot;/&quot;.join(list_url)
-            print(url.scheme + &apos;://&apos; + url.netloc +&apos;/&apos;+ url_path + urls[1])
-        else:
-            list_url=[]
-            for i in url.path.split(&apos;/&apos;):
-                if i!=&apos;&apos;:list_url.append(&apos;{%s:%s}&apos;%(self.judgetype(i),len(i)))
-            url_path=&quot;/&quot;.join(list_url)
-            print(url.scheme + &apos;://&apos; + url.netloc +&apos;/&apos;+ url_path)
-    def params_filter(self,url):
-        #url参数处理
-        liststr = []
-        try:
-            liststr = []
-            for i in url.query.split(&apos;&amp;&apos;):
-                para = i.split(&apos;=&apos;)
-                length_int = len(para[1])
-                if self.judgetype(para[1]) == &apos;int&apos;:
-                    para[1] = &apos;{int:%s}&apos; % length_int
-                else:
-                    para[1] = &apos;{str:%s}&apos; % length_int
-                para = &apos;=&apos;.join(para)
-                liststr.append(para)
-            url_paras=&apos;&amp;&apos;.join(liststr)
-            return url.scheme + &apos;://&apos; + url.netloc + url.path + &apos;?&apos; + url_paras
-        except:
-            length_int = len(url.query)
-            url_paras = &apos;{&apos;+self.judgetype(url.query) + &apos;:%s}&apos; % length_int
-            return url.scheme + &apos;://&apos; + url.netloc + url.path + &apos;?&apos; + url_paras
-    def callback_content(self,content):
-        ret = re.split(r&apos;-|_|\.&apos;,content)
-    def judgetype(self, strs):
-        try:
-            int(strs)
-            return &apos;int&apos;
-        except:
-            return &apos;str&apos;
-if __name__ == &apos;__main__&apos;:
-    urlss = [&apos;http://www.target.cn/zxft/20483.htm?dsdsa&apos;,&apos;http://www.target.cn/zxft.php&apos;,\
-             &apos;http://www.target.cn/zxft/20483.htm&apos;,&apos;http://www.target.cn/zxft/20483.htm?dsdsa=dsadsa&amp;dada=1&apos;,\
-             &apos;http://www.target.cn/zxft/31231.htm&apos;,&apos;http://www.target.cn/zxft/31231&apos;,\
-             &apos;http://www.target.cn/&apos;,&apos;http://www.target.cn/zxft/20483.htm?dsdsa=ds1adsa&amp;dada=231231&apos;,\
-             &apos;http://www.target.cn/dsadsa/&apos;,&apos;http://www.target.cn/2131&apos;,&apos;http://www.target.cn/user&apos;,\
-             &apos;http://www.target.cn/da1s_dasd/&apos;,&apos;http://www.target.cn/das_dasd?das=121&apos;,&apos;http://www.target.cn/index.php/thanks&apos;,\
-             &apos;http://www.target.cn/?a=dasd&apos;]
-    p = filter_url()
-    for i in urlss:
-        p.filter_url(i)</code></pre><h3 id="处理结果"><a href="#处理结果" class="headerlink" title="处理结果:"></a>处理结果:</h3><p><img src="https://s1.ax1x.com/2018/08/04/PBLbh8.png" alt=""></p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料:"></a>参考资料:</h3><p><a href="https://github.com/ring04h/papers/blob/master/WEB2.0%E5%90%AF%E5%8F%91%E5%BC%8F%E7%88%AC%E8%99%AB%E5%AE%9E%E6%88%98-%E7%8C%AA%E7%8C%AA%E4%BE%A0-20180616.pdf" target="_blank" rel="noopener">WEB2.0启发式爬虫实战-猪猪侠</a><br><a href="https://security.tencent.com/index.php/blog/msg/34" target="_blank" rel="noopener">SuperSpider——打造功能强大的爬虫利器</a><br><a href="https://github.com/guimaizi/nimendoushilaji" target="_blank" rel="noopener">爬虫+扫描器</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/08/04/url-e5-8e-bb-e9-87-8d/" data-id="ck7fpyfwu00ai1swbcs8lfazg" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-e7-bb-8f-e6-b5-8e-e5-bd-a2-e5-8a-bf-e5-88-86-e6-9e-90" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/04/e7-bb-8f-e6-b5-8e-e5-bd-a2-e5-8a-bf-e5-88-86-e6-9e-90/" class="article-date">
@@ -215,7 +101,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/08/04/e7-bb-8f-e6-b5-8e-e5-bd-a2-e5-8a-bf-e5-88-86-e6-9e-90/" data-id="ck7fpyfw8009e1swb5hlifmol" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/08/04/e7-bb-8f-e6-b5-8e-e5-bd-a2-e5-8a-bf-e5-88-86-e6-9e-90/" data-id="ck7fxrfyw009cxwwbhub9697b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +177,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/08/03/e9-87-91-e8-9e-8d/" data-id="ck7fpyfwk009z1swbbxnkhfdu" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/08/03/e9-87-91-e8-9e-8d/" data-id="ck7fxrfz1009vxwwbboqce2cz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -333,7 +219,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/07/27/e4-b8-80-e5-88-87-e6-9c-89-e4-b8-ba-e6-b3-95/" data-id="ck7fpyfvh006j1swbalxr9q93" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/07/27/e4-b8-80-e5-88-87-e6-9c-89-e4-b8-ba-e6-b3-95/" data-id="ck7fxrfy30068xwwb0mfrgh4c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -374,7 +260,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/07/22/256/" data-id="ck7fpyfu400211swbgfjsceb7" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/07/22/256/" data-id="ck7fxrfwo001mxwwb1cai3vr4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -467,7 +353,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/07/20/e6-8a-95-e8-b5-84-e4-b8-ad-e6-9c-80-e7-ae-80-e5-8d-95-e7-9a-84-e4-ba-8b-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b0/" data-id="ck7fpyfxd00dl1swb1mzg7xc8" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/07/20/e6-8a-95-e8-b5-84-e4-b8-ad-e6-9c-80-e7-ae-80-e5-8d-95-e7-9a-84-e4-ba-8b-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b0/" data-id="ck7fxrfzl00dixwwb0ke2akfi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -508,7 +394,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/07/18/247/" data-id="ck7fpyfu2001u1swb4gbrad4v" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/07/18/247/" data-id="ck7fxrfwp001oxwwb8d5agg3a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -549,7 +435,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/07/16/245/" data-id="ck7fpyfu1001s1swbdclwa6d5" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/07/16/245/" data-id="ck7fxrfwq001rxwwb7fz11g8t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -590,7 +476,7 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/07/13/243/" data-id="ck7fpyfu0001p1swb4qen1rw5" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/07/13/243/" data-id="ck7fxrfwn001hxwwbekn45u7e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -631,7 +517,48 @@ if __name__ == &apos;__main__&apos;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/06/29/237/" data-id="ck7fpyftz001k1swbezza957r" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/06/29/237/" data-id="ck7fxrfwm001cxwwb8x9e2gbl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-235" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/27/235/" class="article-date">
+  <time datetime="2018-06-27T07:32:02.000Z" itemprop="datePublished">2018-06-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/27/235/">235</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对不起，我错了，我就想当个普通人，普普通通 健健康康的人。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guimaizi.github.io/2018/06/27/235/" data-id="ck7fxrfwo001jxwwbbseqce63" class="article-share-link">Share</a>
       
       
     </footer>
@@ -702,10 +629,6 @@ if __name__ == &apos;__main__&apos;:
           </li>
         
           <li>
-            <a href="/2020/03/06/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
             <a href="/2020/02/16/596/">596</a>
           </li>
         
@@ -715,6 +638,10 @@ if __name__ == &apos;__main__&apos;:
         
           <li>
             <a href="/2020/02/01/592/">592</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/14/590/">590</a>
           </li>
         
       </ul>
