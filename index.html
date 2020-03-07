@@ -97,7 +97,7 @@
 <p>既然是web漏洞扫描器，那么就要基本了解下什么是web漏洞挖掘，说白了就是修改http/s请求包的数据。</p>
 <p><img src="https://raw.githubusercontent.com/guimaizi/cloud/test/img/20200307181557.png" alt=""></p>
 <p>如图，很标椎的一个http请求包，也是很标准的一个xss漏洞，那么判断xss的方式就是修改name参数的值，然后判断http的响应内容，如此来判断xss的漏洞存在，通常我们会手工在name参数追加payload:</p>
-<figure class="highlight plain"><figcaption><span>src</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">判断响应内容来判断这是不是存在一个xss漏洞,或者追加&#39; 、and 1&#x3D;1、or 1&#x3D;1、and sleep(3)来判断是否存在sql注入等，而且他妈的很奇怪的是每次都是这样，流水线了，不胜其烦，我也是服了 我们是黑客啊，居然开始干流水线工作了，这不科学啊,太傻逼了,那么这个时候你就需要我这个扫描器了。</span><br><span class="line"></span><br><span class="line">效果视频: </span><br><span class="line"></span><br><span class="line">&lt;video src&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;guimaizi&#x2F;cloud&#x2F;raw&#x2F;test&#x2F;20200307-190212967.mp4&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">常规get\post 包括 Content-Type: application&#x2F;json 、均可测。</span><br><span class="line"></span><br><span class="line">思路就是把burp的http请求包抓出来保存为tmp.json</span><br><span class="line"></span><br><span class="line">格式:</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;&#123;</span><br><span class="line">&#123;&quot;headers&quot;: </span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Origin&quot;: &quot;http:&#x2F;&#x2F;192.168.0.137&quot;,</span><br><span class="line">         &quot;Cookie&quot;: &quot;PHPSESSID&#x3D;fjkq8kiuutn3hkoj4uppsg30da&quot;,</span><br><span class="line">         &quot;Accept&quot;: &quot;application&#x2F;json,</span><br><span class="line">         text&#x2F;javascript,</span><br><span class="line">         *&#x2F;*; q&#x3D;0.01&quot;,</span><br><span class="line">         &quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;,</span><br><span class="line">         &quot;User-Agent&quot;: &quot;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML,</span><br><span class="line">         like Gecko) Chrome&#x2F;81.0.4009.0 Safari&#x2F;537.36&quot;,</span><br><span class="line">         &quot;Referer&quot;: &quot;http:&#x2F;&#x2F;192.168.0.137&#x2F;12345.php&quot;,</span><br><span class="line">         &quot;Connection&quot;: &quot;close&quot;,</span><br><span class="line">         &quot;Accept-Encoding&quot;: &quot;gzip,</span><br><span class="line">         deflate&quot;,</span><br><span class="line">         &quot;Accept-Language&quot;: &quot;en-US,</span><br><span class="line">        en;q&#x3D;0.9&quot;,</span><br><span class="line">         &quot;Content-Length&quot;: &quot;85&quot;,</span><br><span class="line">         &quot;Content-Type&quot;: &quot;application&#x2F;json&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">     &quot;method&quot;: 1,</span><br><span class="line">     &quot;url&quot;: &quot;http:&#x2F;&#x2F;192.168.0.137:80&#x2F;12345.php&quot;,</span><br><span class="line">     &quot;post&quot;: &quot;</span><br><span class="line">    &#123;</span><br><span class="line">        \&quot;userName\&quot;:\&quot;asdas\&quot;,</span><br><span class="line">        \&quot;passWord\&quot;:\&quot;dsadsa\&quot;,</span><br><span class="line">        \&quot;type\&quot;:1,</span><br><span class="line">        \&quot;data\&quot;:</span><br><span class="line">        &#123;</span><br><span class="line">            \&quot;aaaa\&quot;:\&quot;bbbb\&quot;,</span><br><span class="line">            \&quot;cccc\&quot;:11111</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>src</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">判断响应内容来判断这是不是存在一个xss漏洞,或者追加&#39; 、and 1&#x3D;1、or 1&#x3D;1、and sleep(3)来判断是否存在sql注入等，而且他妈的很奇怪的是每次都是这样，流水线了，不胜其烦，我也是服了 我们是黑客啊，居然开始干流水线工作了，这不科学啊,太傻逼了,那么这个时候你就需要我这个扫描器了。</span><br><span class="line"></span><br><span class="line">效果视频: </span><br><span class="line"></span><br><span class="line">&lt;video src&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;guimaizi&#x2F;cloud&#x2F;raw&#x2F;test&#x2F;20200307-190212967.mp4&quot;&gt;controls&#x3D;&quot;controls&quot; style&#x3D;&quot;max-width: 100%; display: block; margin-left: auto; margin-right: auto;&quot;&gt;</span><br><span class="line">your browser does not support the video tag</span><br><span class="line">&lt;&#x2F;video&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">常规get\post 包括 Content-Type: application&#x2F;json 、均可测。</span><br><span class="line"></span><br><span class="line">思路就是把burp的http请求包抓出来保存为tmp.json</span><br><span class="line"></span><br><span class="line">格式:</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;&#123;</span><br><span class="line">&#123;&quot;headers&quot;: </span><br><span class="line">    &#123;</span><br><span class="line">        &quot;Origin&quot;: &quot;http:&#x2F;&#x2F;192.168.0.137&quot;,</span><br><span class="line">         &quot;Cookie&quot;: &quot;PHPSESSID&#x3D;fjkq8kiuutn3hkoj4uppsg30da&quot;,</span><br><span class="line">         &quot;Accept&quot;: &quot;application&#x2F;json,</span><br><span class="line">         text&#x2F;javascript,</span><br><span class="line">         *&#x2F;*; q&#x3D;0.01&quot;,</span><br><span class="line">         &quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;,</span><br><span class="line">         &quot;User-Agent&quot;: &quot;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML,</span><br><span class="line">         like Gecko) Chrome&#x2F;81.0.4009.0 Safari&#x2F;537.36&quot;,</span><br><span class="line">         &quot;Referer&quot;: &quot;http:&#x2F;&#x2F;192.168.0.137&#x2F;12345.php&quot;,</span><br><span class="line">         &quot;Connection&quot;: &quot;close&quot;,</span><br><span class="line">         &quot;Accept-Encoding&quot;: &quot;gzip,</span><br><span class="line">         deflate&quot;,</span><br><span class="line">         &quot;Accept-Language&quot;: &quot;en-US,</span><br><span class="line">        en;q&#x3D;0.9&quot;,</span><br><span class="line">         &quot;Content-Length&quot;: &quot;85&quot;,</span><br><span class="line">         &quot;Content-Type&quot;: &quot;application&#x2F;json&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">     &quot;method&quot;: 1,</span><br><span class="line">     &quot;url&quot;: &quot;http:&#x2F;&#x2F;192.168.0.137:80&#x2F;12345.php&quot;,</span><br><span class="line">     &quot;post&quot;: &quot;</span><br><span class="line">    &#123;</span><br><span class="line">        \&quot;userName\&quot;:\&quot;asdas\&quot;,</span><br><span class="line">        \&quot;passWord\&quot;:\&quot;dsadsa\&quot;,</span><br><span class="line">        \&quot;type\&quot;:1,</span><br><span class="line">        \&quot;data\&quot;:</span><br><span class="line">        &#123;</span><br><span class="line">            \&quot;aaaa\&quot;:\&quot;bbbb\&quot;,</span><br><span class="line">            \&quot;cccc\&quot;:11111</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>然后通过脚本处理、追加payload后 进行测试漏洞。</p>
 <p>如果配合 <a href="https://github.com/mitmproxy/mitmproxy" target="_blank" rel="noopener">mitmproxy</a>   那么就是个类似闭源工具<a href="https://github.com/chaitin/xray" target="_blank" rel="noopener">xray</a> 的被动扫描器、如果你再配合上一个强大的爬虫，那就是个主动扫描器。</p>
@@ -112,7 +112,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/03/07/scan-num-1/" data-id="ck7hjr48s00ads4wbdayterdt" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/03/07/scan-num-1/" data-id="ck7hk5tta00ak6swb8ijm504q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%AB%E6%8F%8F%E5%99%A8/" rel="tag">扫描器</a></li></ul>
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/03/07/%E5%85%B3%E4%BA%8E%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8D%A2%E5%8D%9A%E5%AE%A2/" data-id="ck7hjr48x00axs4wbb8692nk6" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/03/07/%E5%85%B3%E4%BA%8E%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8D%A2%E5%8D%9A%E5%AE%A2/" data-id="ck7hk5tte00b16swb38x2gui2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
@@ -506,7 +506,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/03/06/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/" data-id="ck7hjr49r00e7s4wbecpv72r3" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/03/06/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/" data-id="ck7hk5tu400ec6swb8iza8sut" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li></ul>
@@ -549,7 +549,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/02/16/596/" data-id="ck7hjr47j005vs4wb4x9iduwa" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/02/16/596/" data-id="ck7hk5trx005y6swbft250hcm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -591,7 +591,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/02/03/594/" data-id="ck7hjr47g005ss4wbfohab51h" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/02/03/594/" data-id="ck7hk5tru005w6swba97t6a9o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -633,7 +633,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/02/01/592/" data-id="ck7hjr47g005qs4wb9hatgsp2" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/02/01/592/" data-id="ck7hk5trt005r6swbe5jg7dz3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -674,7 +674,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/01/14/590/" data-id="ck7hjr47f005os4wb6dmfcy7k" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/01/14/590/" data-id="ck7hk5trt005t6swb41q00wfz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -715,7 +715,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2020/01/06/e6-b0-91-e4-b8-bb-e8-bf-99-e4-b8-9c-e8-a5-bf/" data-id="ck7hjr48e0092s4wb9g2945kq" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2020/01/06/e6-b0-91-e4-b8-bb-e8-bf-99-e4-b8-9c-e8-a5-bf/" data-id="ck7hk5tst00966swb5rlo305y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -756,7 +756,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/12/30/585/" data-id="ck7hjr47f005ms4wbh5xg3rvd" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/12/30/585/" data-id="ck7hk5trs005o6swb90uhba91" class="article-share-link">Share</a>
       
       
     </footer>
@@ -797,7 +797,7 @@ i come here only to say goodbye to you. 我来这仅仅是想对你说声再见�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/12/30/e5-88-9a-e6-89-8d-e5-90-ac-e5-88-b0-e4-b8-80-e9-a6-96-e6-ad-8c/" data-id="ck7hjr480007os4wb42u2butv" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/12/30/e5-88-9a-e6-89-8d-e5-90-ac-e5-88-b0-e4-b8-80-e9-a6-96-e6-ad-8c/" data-id="ck7hk5tsd007q6swbcf3r22m7" class="article-share-link">Share</a>
       
       
     </footer>
