@@ -71,6 +71,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-8e-a7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/05/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-8e-a7/" class="article-date">
+  <time datetime="2018-12-05T14:23:01.000Z" itemprop="datePublished">2018-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/">安全/代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/05/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-8e-a7/">子域名监控</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="域名监控概括"><a href="#域名监控概括" class="headerlink" title="域名监控概括"></a>域名监控概括</h4><p>子域名收集这个路子真的是被玩烂了，花样百出、工具没有八百也有一千，无非是爆破、爬、调用搜索引擎之类，有资源的大厂有自己的dns库，但是这些在我眼里真的都很low。</p>
+<p>为什么说很low，因为在职业刷src或者apt攻击者的角度，单单过一遍爆破的域名是不能满足<strong><em>持续性</em></strong>漏洞挖掘的;从职业刷src的角度，过一遍收集的子域名，已经发现了所有漏洞并已经提交后修复，或者用当前漏洞测试方法并没发现有漏洞，这样业务是安全的，但这个安全是在当下时间的，企业要发展、要解决当前问题，就会出新业务不断的pull代码更新旧问题，<strong><em>这就是业务的变化，通过持续性监控子域名就会发现业务的变化，最快速度的发现变化，对变化进行安全测试、漏洞挖掘</em></strong>。有经验的刷src的同学都知道，新业务发现漏洞概率都很高。</p>
+<p>懒惰使人创造工具，而我就拥有这么一个工具，从14年搞的子域名爆破工具(送给过一个小姐姐，刷了好多漏，如今以身为人妻，而我还没有女朋友。)，到如今的子域名监控工具。</p>
+<h4 id="具体实现思路"><a href="#具体实现思路" class="headerlink" title="具体实现思路"></a>具体实现思路</h4><p>1、通过域名爆破、搜索引擎之类方法，获得子域名后爬取子域名http响应数据保存入数据库。<br>2、设定时间、可以是一分钟、一小时、一天一次循环读取库内子域名，进行爬取子域名和库类http响应数据对比，对比出变化推送提醒。</p>
+<hr>
+<p>从思路上是个简单的工具，但是我的集成chrome headless、subfinder，自我感觉mongodb的可视化也不错，操作便捷、使用稳定。 <img src="https://s1.ax1x.com/2018/10/16/iaqI41.png" alt=""> 结果类似图上，正式版本title不会出现乱码。</p>
+<blockquote>
+<p>功能: 通过爆破、爬取收集子域名，之后循环爬取库内数据对比发现业务的变化和新业务后及时展示、推送。 域名黑名单机制，可设置过滤<em>.ke.qq.com、</em>.qzone.qq.com、*.bz.qq.com之类n级子域泛解析。</p>
+</blockquote>
+<hr>
+<p><strong><em>上面说了一大堆，重点来了，最近略穷，试用版价格只要200人民币，不是美元、不是比特币，只要一个微信红包价格,有意请联系以下微信:</em></strong> <img src="https://s1.ax1x.com/2018/12/06/F10y28.png" alt="F10y28.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://guimaizi.github.io/2018/12/05/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-8e-a7/" data-id="ck8boz8h3008b6cwbgsflhk5d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-346" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/01/346/" class="article-date">
@@ -102,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/12/01/346/" data-id="ck7ihd4j5002ii8wb4dnxae2k" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/12/01/346/" data-id="ck8boz8f7002n6cwb58lf1hgr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -143,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/11/25/344/" data-id="ck7ihd4j5002ki8wb0daq74pt" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/11/25/344/" data-id="ck8boz8f5002h6cwbb3u6afoo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/11/25/e9-87-91-e8-9e-8d-e5-8d-b1-e6-9c-ba-e6-b5-81-e7-a8-8b/" data-id="ck7ihd4lc00a3i8wb7n6c3uoq" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/11/25/e9-87-91-e8-9e-8d-e5-8d-b1-e6-9c-ba-e6-b5-81-e7-a8-8b/" data-id="ck8boz8hr00a46cwb6c6f7w3i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -231,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/11/18/e8-87-aa-e7-94-b1-e7-9a-84-e4-bb-a3-e4-bb-b7/" data-id="ck7ihd4l8009qi8wbbxbfaosu" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/11/18/e8-87-aa-e7-94-b1-e7-9a-84-e4-bb-a3-e4-bb-b7/" data-id="ck8boz8hp009w6cwb3fvfaxz0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -275,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/11/15/e5-a6-82-e4-bd-95-e5-83-8f-e6-88-91-e4-b8-80-e6-a0-b7-e5-88-b7-e8-85-be-e8-ae-af-e9-ab-98-e5-8d-b1/" data-id="ck7ihd4ks0084i8wb3ma7154r" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/11/15/e5-a6-82-e4-bd-95-e5-83-8f-e6-88-91-e4-b8-80-e6-a0-b7-e5-88-b7-e8-85-be-e8-ae-af-e9-ab-98-e5-8d-b1/" data-id="ck8boz8h200876cwb86ml8u3a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -336,7 +387,7 @@ javascript:alert()</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/11/15/e5-a6-82-e4-bd-95-e5-83-8f-e6-88-91-e4-b8-80-e6-a0-b7-e5-88-b7-e8-85-be-e8-ae-afxss/" data-id="ck7ihd4ks0086i8wber9n3a0j" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/11/15/e5-a6-82-e4-bd-95-e5-83-8f-e6-88-91-e4-b8-80-e6-a0-b7-e5-88-b7-e8-85-be-e8-ae-afxss/" data-id="ck8boz8h100856cwb8rb4bs8q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +433,7 @@ javascript:alert()</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/10/30/e6-ad-a6-e4-be-a0/" data-id="ck7ihd4l20094i8wb2fyheine" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/10/30/e6-ad-a6-e4-be-a0/" data-id="ck8boz8he00956cwb03f3hgu8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -554,7 +605,7 @@ if __name__==&quot;__main__&quot;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/10/16/e5-ad-90-e5-9f-9f-e5-90-8d-e9-9a-8f-e6-9c-ba-e6-94-b6-e9-9b-86/" data-id="ck7ihd4ku008ei8wbb02l8qu9" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/10/16/e5-ad-90-e5-9f-9f-e5-90-8d-e9-9a-8f-e6-9c-ba-e6-94-b6-e9-9b-86/" data-id="ck8boz8h4008f6cwbdsly4zsv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -596,75 +647,7 @@ if __name__==&quot;__main__&quot;:
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/10/12/e5-a4-9c-e7-ac-99-e6-ad-8c-e6-9c-89-e6-84-9f/" data-id="ck7ihd4kr0082i8wb3qno17rt" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-e5-a6-82-e4-bd-95-e8-89-ba-e6-9c-af-e7-9a-84-e5-88-b7src" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/10/e5-a6-82-e4-bd-95-e8-89-ba-e6-9c-af-e7-9a-84-e5-88-b7src/" class="article-date">
-  <time datetime="2018-10-10T14:00:10.000Z" itemprop="datePublished">2018-10-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%AE%89%E5%85%A8-%E4%BB%A3%E7%A0%81/">安全/代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/10/e5-a6-82-e4-bd-95-e8-89-ba-e6-9c-af-e7-9a-84-e5-88-b7src/">如何艺术的刷src</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>作为一个刷src老油条来说下我的经验，我是13年开始刷src的，蝉联宇宙最厉害src tsrc四年的前五，最好成绩是第三-.-‘’’,积分制上有一年的第一。</p>
-</blockquote>
-<p>13、14年那时候真的是如果稍微有点编程功底基本就可以制霸各大src，那个时代甚至好多厂家没有waf(web防火墙)的概念，而web2.0时代才刚开始一段时间，xss、sql、命令注入、代码执行、越权、弱口令什么鬼的到处都是，所以出了很多从零开始的黑客，历练到今年，基本都已经是独当一面的安全工程师，甚至有的还很出名很牛逼很有钱，16、17年开始行业不一样了，从以前厂商裸奔到waf的普及和安全意识的转变，然后刷src人士就不好过了，一个xss都要先绕过waf，被政策施压、各种黑客的扫描测试、乙方厂家扫描测试，相对当年已经重视和安全了很多。</p>
-<p>言归正传，刷src也就是批量挖漏洞，漏洞是如何产生？ 交互处常有漏洞，世界本来很安全，自从有了人，和他人，需要处理和他人各种逻辑关系时，就不安全了。</p>
-<h3 id="交互流程"><a href="#交互流程" class="headerlink" title="交互流程:"></a>交互流程:</h3><p><img src="https://s1.ax1x.com/2018/10/09/iYuyPf.png" alt="iYuyPf.png"> 这个互联网就是基于这个逻辑而存在，就如同你论坛发帖，<strong><em>流程</em></strong>:要把文字编辑好提交(输入)-&gt;论坛服务器(处理数据:标识是谁发的、属于哪个版块、哪个时间)-&gt;保存进入数据库-&gt;调用数据库内数据展示(二次处理，根据标识或者时间顺序展示等)。要至少经过这一个流程你的帖子才能发表在论坛上。</p>
-<pre><code>&lt;?php 
-/*
-php xss 漏洞案例
-文件名:1.php
-触发:www.xxx.com/1.php?xss=[evilcode]
-*/
-echo $GET_[&apos;XSS&apos;];
-?&gt;</code></pre><p>以上是xss漏洞的交互逻辑:<strong><em>输入(从表单输入)-处理(前端、后端逻辑处理)-展示</em></strong>，漏洞在于处理输入的数据时没有考虑到数据中可能出现的风险，所以漏洞不在于输入时和展示时，而在于处理时，就如例直接展示输入的数据就造成了xss漏洞。<br>漏洞是在处理时，而没有输入也不会有处理，这是个有鸡还是先有蛋的问题，这个流程才是风险的所在，那么刷src艺术的关键就在寻找这个流程，就是寻找输入点，寻找到的输入点越多，你找到漏洞的可能性越大，他的流程越是复杂，你能在这一个流程上找到漏洞就越多。</p>
-<h4 id="寻找web流程-输入点-web前期情报收集"><a href="#寻找web流程-输入点-web前期情报收集" class="headerlink" title="寻找web流程/输入点(web前期情报收集)"></a>寻找web流程/输入点(web前期情报收集)</h4><p>如何刷src的第一步就是如何寻找这个流程，web常规流程:<br><strong><em>(数据由人输入)-&gt;(经过http/https传输至)-&gt;(web服务器apache/nginx/iis接收并解码)-&gt;(脚本语言处理数据)</em></strong> 这就是一个能接受数据的web服务(网站)，可以通过域名/IP访问。</p>
-<blockquote>
-<p>域名:*.org *.com *.cn *.gov *.[a-Z]<br>IP:IPV4 0.0.0.0-255.255.255.255 IPV6 0:0:0:0:0:0:0:0 → ::</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**_域名的规则_** : *.gov结尾的都是政府的web服务(网站)、*.edu结尾的都是学校&#x2F;教育机构的web服务(网站),比如www.gov.cn(中国政府网) www.pku.edu.cn(北京大学)，因为是中国的网站所以结尾多出了.cn,互联网企业都会拥有域名如:www.qq.com www.168.com,而因为业务庞大繁多等原因，域名都会出现多个子域名如*.qq.com *.163.com。 ![iYMGcD.png](https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2018&#x2F;10&#x2F;09&#x2F;iYMGcD.png) 如图，子域名繁多，功能不一，都是完整web服务流程，而入口的区别只在于 \[\].qq.com 括号内0-9a-Z的组合。</span><br></pre></td></tr></table></figure>
-<p><strong><em>IP的规则</em></strong> :大家都有使用过路由器，很多人还操作过，一个家用路由器分配的ip:192.168.0.1-192.168.255.255,而分配的这些ip就叫做 ip段<br><a href="https://imgchr.com/i/iYMgBj" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/09/iYMgBj.png" alt="iYMgBj.png"></a> 判断是不是属于某家企业的ip和当前ip属于哪个段，<a href="http://ipwhois.cnnic.net.cn/bns/query/Query/ipwhoisQuery.do?txtquery=211.152.128.0&amp;queryOption=ipv4" target="_blank" rel="noopener">http://ipwhois.cnnic.net.cn/bns/query/Query/ipwhoisQuery.do?txtquery=211.152.128.0&amp;queryOption=ipv4</a> <img src="https://s1.ax1x.com/2018/10/09/iYM2Hs.png" alt="iYM2Hs.png"></p>
-<p>利用以上域名和ip的规则大量收集web服务流程，是很重要的，能提高寻找到漏洞的概率，不过刷一家大厂的漏洞很难凭借ip来寻找到web服务，因为经过这么多年的攻防对抗，都禁止通过ip直接访问网站来防止恶意解析了，所以高效的方式还是通过域名。</p>
-<p>经过我的测试，开源工具Subdomain相比与其他更加高效 数据更多，所以选择Subdomain+自己写的爬虫来做域名收集、url收集、表单收集、资产监控。<br><a href="https://github.com/subfinder/subfinder" target="_blank" rel="noopener">https://github.com/subfinder/subfinder</a></p>
-<h4 id="逻辑处理-web安全漏洞测试"><a href="#逻辑处理-web安全漏洞测试" class="headerlink" title="逻辑处理(web安全漏洞测试)"></a>逻辑处理(web安全漏洞测试)</h4><p>收集到的url： <img src="https://s1.ax1x.com/2018/10/10/iYvJzT.png" alt="iYvJzT.png"> 其实收集到的是一个基于http/s格式可控的输入点。 <img src="https://s1.ax1x.com/2018/10/10/iYvUL4.png" alt="iYvUL4.png"> http/https超文本协议，而所有的web端的输入 返回都遵守这个协议。 处理也是根据这个协议传输的格式进行处理，增\删\改\查,管理数据,是目标的业务场景。<br>处理中可能出现的漏洞风险: * xss * get_xss * post_xss * dom_xss * sql * 报错注入 * 盲注 * 时间延迟注入 * insert update 注入 * Mysql/Mssql/Oracle/PostgreSQL * 非关系型数据库mongodb * 命令/代码注入 * win/linux命令注入 * php/asp/jsp/.net/nodejs/python_web命令注入 * 越权 * 增/删/改/查/越权登录 * 敏感信息泄露 * 密码泄露 * cookie session泄露 * 个人信息泄露 * 商业/政务/军情信息泄露 * 逻辑漏洞<br>* 验证码爆破 * 支付修改金额 * xxe * ssrf<br>* 等</p>
-<p>而这些漏洞带来的风险也是是逻辑处理环境而定，银行网站你输入的金额、个人资料也是输入点;核电站等工业设备你输入的参数;摄像头后台、汽车终端、atm等，基于环境暴露出的威胁也不一样。<br>改变输入内容，把输入内容改为对应以上攻击的恶意代码，就会造成风险危害。<br>漏洞靶场:<a href="http://testphp.vulnweb.com/" target="_blank" rel="noopener">http://testphp.vulnweb.com/</a></p>
-<h3 id="什么是艺术？"><a href="#什么是艺术？" class="headerlink" title="什么是艺术？"></a>什么是艺术？</h3><blockquote>
-<p>艺术就是技术的巅峰，如独孤求败、利剑-软剑-重剑-草木竹石皆可为剑-无剑胜有剑，把剑术练至出神入化无剑胜有剑的地步，从此天下在无敌手，这就是艺术。</p>
-</blockquote>
-<p>纯手工测试漏洞、半自动测试漏洞、全自动测试漏洞。而我要打造自己的艺术,资产收集-漏洞测试-生成报告-提交漏洞报告，流程全自动。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://guimaizi.github.io/2018/10/10/e5-a6-82-e4-bd-95-e8-89-ba-e6-9c-af-e7-9a-84-e5-88-b7src/" data-id="ck7ihd4kt0088i8wb0ol14als" class="article-share-link">Share</a>
+      <a data-url="https://guimaizi.github.io/2018/10/12/e5-a4-9c-e7-ac-99-e6-ad-8c-e6-9c-89-e6-84-9f/" data-id="ck8boz8h100836cwbhnbc2nqw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -712,6 +695,10 @@ echo $GET_[&apos;XSS&apos;];
       <ul>
         
           <li>
+            <a href="/2020/03/28/cov-2019/">cov-2019</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/07/scan-num-1/">被动扫描器</a>
           </li>
         
@@ -725,10 +712,6 @@ echo $GET_[&apos;XSS&apos;];
         
           <li>
             <a href="/2020/02/16/596/">596</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/03/594/">594</a>
           </li>
         
       </ul>
