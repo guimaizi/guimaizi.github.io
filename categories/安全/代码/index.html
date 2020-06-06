@@ -15,7 +15,7 @@
 <link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
 
-<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591455320" />
+<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591455968" />
 
 
 
@@ -214,42 +214,6 @@ const puppeteer = require('puppeteer'); async function process_page(page){ //pag
 <div class="article-info">
     
         <div class="article-date">2019-07-06</div>
-    
-</div>
-      
-    </article>
-    
-    <article class="post-list">
-        <header> 
-            <h1>
-                <a href="/482.html">burp漏扫插件</a>
-            </h1>
-        </header>
-        
-        <div class="content post-summary">
-            github:https://github.com/guimaizi/burp_lib
-介绍 burp应该是在座的诸位安全从业人员必用的测试工具,重放http/s请求包是burp最常用的功能. xss案例:
-&lt;?php $domain=$_POST['domain']; if($domain){ echo $domain; }else{ $html='&lt;form name=&quot;input&quot; action=&quot;&quot; method=&quot;post&quot;&gt; domain: &lt;input type=&quot;text&quot; name=&quot;dasdas&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domadsa112n&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domain&quot;&gt; &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt; &lt;/form&gt;'; echo $html; } ?&gt;  那么漏洞测试就是修改http请求包的参数.如sql、xss、命令执行测试,无非是在参数值后面追加payload，然后查看响应包判读是否存在漏洞,然而一个参数一个参数的测试真的很辛苦。
-如图，手工测到最后一个参数，才发现xss 不如写个脚本遍历参数值,让程序自动加上漏洞检测payload并且重放。
-点击触发扫描。
-判断响应包http响应大小与返回内容是否存在关键字，依次来判断漏洞是否存在。 请自行修改漏洞检测用payload,与分析响应包的内容。
-环境搭建 参考:Burpsuite插件的使用:https://www.freebuf.com/sectool/158005.html win10/8/7/xp
-python3.5+
- pip install requests
- 设置绝对路径:
-test_vul.py 25行
-burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jython 2.7.0 - Standalone Jar 版
-导入:
-2.导入我的漏洞检测
-然后就可以用了:
-码个代码不容易，大爷大妈行行好，赏碗鸡煲翅吧，希望有钱人打赏,万分感谢。 
-        </div>
-        
-
-
-<div class="article-info">
-    
-        <div class="article-date">2019-06-25</div>
     
 </div>
       
@@ -658,29 +622,6 @@ xss测试、wget\curl 命令注入盲打、sql注入测试、ssrf 敏感信息�
 <div class="article-info">
     
         <div class="article-date">2018-08-04</div>
-    
-</div>
-      
-    </article>
-    
-    <article class="post-list">
-        <header> 
-            <h1>
-                <a href="/164.html">burp-jython-插件</a>
-            </h1>
-        </header>
-        
-        <div class="content post-summary">
-            功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub('\'&rsquo;,'\&quot;',f.read())把单引号转为双引号，如图二。）
-# coding: utf-8 '&rsquo;&rsquo; @author: guimaizi '&rsquo;&rsquo; from burp import IBurpExtender from burp import IContextMenuFactory from burp import IBurpExtenderCallbacks from burp import IContextMenuInvocation from burp import IHttpRequestResponse from javax.swing import JMenuItem import os
-class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu.append(JMenuItem(self._actionName, None , actionPerformed= lambda x, inv=invocation: self.
-        </div>
-        
-
-
-<div class="article-info">
-    
-        <div class="article-date">2018-04-22</div>
     
 </div>
       
