@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>burp漏扫插件 - guimaizi&#39;s blog</title>
+<meta name="description" content="">
+
+<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
+
+<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591454895" />
+
+
+
+<meta property="og:title" content="burp漏扫插件" />
+<meta property="og:description" content="github:https://github.com/guimaizi/burp_lib
+介绍 burp应该是在座的诸位安全从业人员必用的测试工具,重放http/s请求包是burp最常用的功能. xss案例:
+&lt;?php $domain=$_POST[&#39;domain&#39;]; if($domain){ echo $domain; }else{ $html=&#39;&lt;form name=&quot;input&quot; action=&quot;&quot; method=&quot;post&quot;&gt; domain: &lt;input type=&quot;text&quot; name=&quot;dasdas&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domadsa112n&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domain&quot;&gt; &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt; &lt;/form&gt;&#39;; echo $html; } ?&gt;  那么漏洞测试就是修改http请求包的参数.如sql、xss、命令执行测试,无非是在参数值后面追加payload，然后查看响应包判读是否存在漏洞,然而一个参数一个参数的测试真的很辛苦。
+如图，手工测到最后一个参数，才发现xss 不如写个脚本遍历参数值,让程序自动加上漏洞检测payload并且重放。
+点击触发扫描。
+判断响应包http响应大小与返回内容是否存在关键字，依次来判断漏洞是否存在。 请自行修改漏洞检测用payload,与分析响应包的内容。
+环境搭建 参考:Burpsuite插件的使用:https://www.freebuf.com/sectool/158005.html win10/8/7/xp
+python3.5&#43;
+ pip install requests
+ 设置绝对路径:
+test_vul.py 25行
+burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jython 2.7.0 - Standalone Jar 版
+导入:
+2.导入我的漏洞检测
+然后就可以用了:
+码个代码不容易，大爷大妈行行好，赏碗鸡煲翅吧，希望有钱人打赏,万分感谢。 " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.guimaizi.com/482.html" />
+<meta property="article:published_time" content="2019-06-25T12:09:47+00:00" />
+<meta property="article:modified_time" content="2019-06-25T12:09:47+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="burp漏扫插件"/>
+<meta name="twitter:description" content="github:https://github.com/guimaizi/burp_lib
+介绍 burp应该是在座的诸位安全从业人员必用的测试工具,重放http/s请求包是burp最常用的功能. xss案例:
+&lt;?php $domain=$_POST[&#39;domain&#39;]; if($domain){ echo $domain; }else{ $html=&#39;&lt;form name=&quot;input&quot; action=&quot;&quot; method=&quot;post&quot;&gt; domain: &lt;input type=&quot;text&quot; name=&quot;dasdas&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domadsa112n&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domain&quot;&gt; &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt; &lt;/form&gt;&#39;; echo $html; } ?&gt;  那么漏洞测试就是修改http请求包的参数.如sql、xss、命令执行测试,无非是在参数值后面追加payload，然后查看响应包判读是否存在漏洞,然而一个参数一个参数的测试真的很辛苦。
+如图，手工测到最后一个参数，才发现xss 不如写个脚本遍历参数值,让程序自动加上漏洞检测payload并且重放。
+点击触发扫描。
+判断响应包http响应大小与返回内容是否存在关键字，依次来判断漏洞是否存在。 请自行修改漏洞检测用payload,与分析响应包的内容。
+环境搭建 参考:Burpsuite插件的使用:https://www.freebuf.com/sectool/158005.html win10/8/7/xp
+python3.5&#43;
+ pip install requests
+ 设置绝对路径:
+test_vul.py 25行
+burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jython 2.7.0 - Standalone Jar 版
+导入:
+2.导入我的漏洞检测
+然后就可以用了:
+码个代码不容易，大爷大妈行行好，赏碗鸡煲翅吧，希望有钱人打赏,万分感谢。 "/>
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header> 
+            
+                <h1 class="site-header">
+    <a href="/">guimaizi&#39;s blog</a>
+</h1>
+<nav>
+    
+    
+</nav>
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+
+    <article class="post">
+        <header>
+            <h1>burp漏扫插件</h1>
+        </header>
+        <div class="content">
+            <p>github:https://github.com/guimaizi/burp_lib</p>
+<h3 id="介绍">介绍</h3>
+<p>burp应该是在座的诸位安全从业人员必用的测试工具,重放http/s请求包是burp最常用的功能. xss案例:</p>
+<pre><code>&lt;?php
+    $domain=$_POST['domain'];
+  if($domain){
+    echo $domain;
+  }else{
+    $html='&lt;form name=&quot;input&quot; action=&quot;&quot; method=&quot;post&quot;&gt;
+    domain: &lt;input type=&quot;text&quot; name=&quot;dasdas&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;domadsa112n&quot;&gt;
+    &lt;input type=&quot;text&quot; name=&quot;domain&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+    &lt;/form&gt;';
+    echo $html;
+  }
+?&gt;
+</code></pre>
+<p>那么漏洞测试就是修改http请求包的参数.如sql、xss、命令执行测试,无非是在参数值后面追加payload，然后查看响应包判读是否存在漏洞,然而一个参数一个参数的测试真的很辛苦。<br>
+<img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625110336.png" alt=""> 如图，手工测到最后一个参数，才发现xss 不如写个脚本遍历参数值,让程序自动加上漏洞检测payload并且重放。<br>
+<img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625110651.png" alt=""> 点击触发扫描。<br>
+<img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625110807.png" alt=""> 判断响应包http响应大小与返回内容是否存在关键字，依次来判断漏洞是否存在。 <img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625111017.png" alt=""> 请自行修改漏洞检测用payload,与分析响应包的内容。</p>
+<h3 id="环境搭建">环境搭建</h3>
+<p>参考:Burpsuite插件的使用:https://www.freebuf.com/sectool/158005.html win10/8/7/xp<br>
+python3.5+</p>
+<blockquote>
+<p>pip install requests</p>
+</blockquote>
+<p>设置绝对路径:<br>
+test_vul.py 25行<br>
+burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jython 2.7.0 - Standalone Jar 版<br>
+导入:<br>
+<img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625112127.png" alt=""> 2.导入我的漏洞检测<br>
+<img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625112300.png" alt=""> 然后就可以用了:<br>
+<img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625112900.png" alt=""></p>
+<h3 id="码个代码不容易大爷大妈行行好赏碗鸡煲翅吧希望有钱人打赏万分感谢">码个代码不容易，大爷大妈行行好，赏碗鸡煲翅吧，希望有钱人打赏,万分感谢。</h3>
+<p><img src="https://raw.githubusercontent.com/guimaizi/cloud/test/20190625113229.png" alt=""> <img src="https://raw.githubusercontent.com/guimaizi/cloud/test/img/20190301182006.jpg" alt=""></p>
+
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-06-25</div>
+    
+    <div class="article-taxonomies">
+        
+            <ul class="article-categories">
+                
+                    <li><a href="http://www.guimaizi.com/categories/%e5%ae%89%e5%85%a8/%e4%bb%a3%e7%a0%81">安全/代码</a></li>
+                
+            </ul>
+            
+            
+    </div>
+</div>
+
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                
+                
+
+                <p>© 2020<br>
+Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+</p>
+            
+        </footer>
+    </div>
+</body>
+</html>

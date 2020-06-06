@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>子域名监控 - guimaizi&#39;s blog</title>
+<meta name="description" content="">
+
+<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
+
+<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591454895" />
+
+
+
+<meta property="og:title" content="子域名监控" />
+<meta property="og:description" content="域名监控概括 子域名收集这个路子真的是被玩烂了，花样百出、工具没有八百也有一千，无非是爆破、爬、调用搜索引擎之类，有资源的大厂有自己的dns库，但是这些在我眼里真的都很low。
+为什么说很low，因为在职业刷src或者apt攻击者的角度，单单过一遍爆破的域名是不能满足**_持续性_**漏洞挖掘的;从职业刷src的角度，过一遍收集的子域名，已经发现了所有漏洞并已经提交后修复，或者用当前漏洞测试方法并没发现有漏洞，这样业务是安全的，但这个安全是在当下时间的，企业要发展、要解决当前问题，就会出新业务不断的pull代码更新旧问题，**_这就是业务的变化，通过持续性监控子域名就会发现业务的变化，最快速度的发现变化，对变化进行安全测试、漏洞挖掘_**。有经验的刷src的同学都知道，新业务发现漏洞概率都很高。
+懒惰使人创造工具，而我就拥有这么一个工具，从14年搞的子域名爆破工具(送给过一个小姐姐，刷了好多漏，如今以身为人妻，而我还没有女朋友。)，到如今的子域名监控工具。
+具体实现思路 1、通过域名爆破、搜索引擎之类方法，获得子域名后爬取子域名http响应数据保存入数据库。
+2、设定时间、可以是一分钟、一小时、一天一次循环读取库内子域名，进行爬取子域名和库类http响应数据对比，对比出变化推送提醒。
+ 从思路上是个简单的工具，但是我的集成chrome headless、subfinder，自我感觉mongodb的可视化也不错，操作便捷、使用稳定。 结果类似图上，正式版本title不会出现乱码。
+ 功能: 通过爆破、爬取收集子域名，之后循环爬取库内数据对比发现业务的变化和新业务后及时展示、推送。 域名黑名单机制，可设置过滤_.ke.qq.com、_.qzone.qq.com、*.bz.qq.com之类n级子域泛解析。
+  上面说了一大堆，重点来了，最近略穷，试用版价格只要200人民币，不是美元、不是比特币，只要一个微信红包价格,有意请联系以下微信: " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.guimaizi.com/349.html" />
+<meta property="article:published_time" content="2018-12-05T22:23:01+00:00" />
+<meta property="article:modified_time" content="2018-12-05T22:23:01+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="子域名监控"/>
+<meta name="twitter:description" content="域名监控概括 子域名收集这个路子真的是被玩烂了，花样百出、工具没有八百也有一千，无非是爆破、爬、调用搜索引擎之类，有资源的大厂有自己的dns库，但是这些在我眼里真的都很low。
+为什么说很low，因为在职业刷src或者apt攻击者的角度，单单过一遍爆破的域名是不能满足**_持续性_**漏洞挖掘的;从职业刷src的角度，过一遍收集的子域名，已经发现了所有漏洞并已经提交后修复，或者用当前漏洞测试方法并没发现有漏洞，这样业务是安全的，但这个安全是在当下时间的，企业要发展、要解决当前问题，就会出新业务不断的pull代码更新旧问题，**_这就是业务的变化，通过持续性监控子域名就会发现业务的变化，最快速度的发现变化，对变化进行安全测试、漏洞挖掘_**。有经验的刷src的同学都知道，新业务发现漏洞概率都很高。
+懒惰使人创造工具，而我就拥有这么一个工具，从14年搞的子域名爆破工具(送给过一个小姐姐，刷了好多漏，如今以身为人妻，而我还没有女朋友。)，到如今的子域名监控工具。
+具体实现思路 1、通过域名爆破、搜索引擎之类方法，获得子域名后爬取子域名http响应数据保存入数据库。
+2、设定时间、可以是一分钟、一小时、一天一次循环读取库内子域名，进行爬取子域名和库类http响应数据对比，对比出变化推送提醒。
+ 从思路上是个简单的工具，但是我的集成chrome headless、subfinder，自我感觉mongodb的可视化也不错，操作便捷、使用稳定。 结果类似图上，正式版本title不会出现乱码。
+ 功能: 通过爆破、爬取收集子域名，之后循环爬取库内数据对比发现业务的变化和新业务后及时展示、推送。 域名黑名单机制，可设置过滤_.ke.qq.com、_.qzone.qq.com、*.bz.qq.com之类n级子域泛解析。
+  上面说了一大堆，重点来了，最近略穷，试用版价格只要200人民币，不是美元、不是比特币，只要一个微信红包价格,有意请联系以下微信: "/>
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header> 
+            
+                <h1 class="site-header">
+    <a href="/">guimaizi&#39;s blog</a>
+</h1>
+<nav>
+    
+    
+</nav>
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+
+    <article class="post">
+        <header>
+            <h1>子域名监控</h1>
+        </header>
+        <div class="content">
+            <h4 id="域名监控概括">域名监控概括</h4>
+<p>子域名收集这个路子真的是被玩烂了，花样百出、工具没有八百也有一千，无非是爆破、爬、调用搜索引擎之类，有资源的大厂有自己的dns库，但是这些在我眼里真的都很low。</p>
+<p>为什么说很low，因为在职业刷src或者apt攻击者的角度，单单过一遍爆破的域名是不能满足**_持续性_**漏洞挖掘的;从职业刷src的角度，过一遍收集的子域名，已经发现了所有漏洞并已经提交后修复，或者用当前漏洞测试方法并没发现有漏洞，这样业务是安全的，但这个安全是在当下时间的，企业要发展、要解决当前问题，就会出新业务不断的pull代码更新旧问题，**_这就是业务的变化，通过持续性监控子域名就会发现业务的变化，最快速度的发现变化，对变化进行安全测试、漏洞挖掘_**。有经验的刷src的同学都知道，新业务发现漏洞概率都很高。</p>
+<p>懒惰使人创造工具，而我就拥有这么一个工具，从14年搞的子域名爆破工具(送给过一个小姐姐，刷了好多漏，如今以身为人妻，而我还没有女朋友。)，到如今的子域名监控工具。</p>
+<h4 id="具体实现思路">具体实现思路</h4>
+<p>1、通过域名爆破、搜索引擎之类方法，获得子域名后爬取子域名http响应数据保存入数据库。<br>
+2、设定时间、可以是一分钟、一小时、一天一次循环读取库内子域名，进行爬取子域名和库类http响应数据对比，对比出变化推送提醒。</p>
+<hr>
+<p>从思路上是个简单的工具，但是我的集成chrome headless、subfinder，自我感觉mongodb的可视化也不错，操作便捷、使用稳定。 <img src="https://s1.ax1x.com/2018/10/16/iaqI41.png" alt=""> 结果类似图上，正式版本title不会出现乱码。</p>
+<blockquote>
+<p>功能: 通过爆破、爬取收集子域名，之后循环爬取库内数据对比发现业务的变化和新业务后及时展示、推送。 域名黑名单机制，可设置过滤_.ke.qq.com、_.qzone.qq.com、*.bz.qq.com之类n级子域泛解析。</p>
+</blockquote>
+<hr>
+<p><strong><em>上面说了一大堆，重点来了，最近略穷，试用版价格只要200人民币，不是美元、不是比特币，只要一个微信红包价格,有意请联系以下微信:</em></strong> <img src="https://s1.ax1x.com/2018/12/06/F10y28.png" alt="F10y28.png"></p>
+
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-12-05</div>
+    
+    <div class="article-taxonomies">
+        
+            <ul class="article-categories">
+                
+                    <li><a href="http://www.guimaizi.com/categories/%e5%ae%89%e5%85%a8/%e4%bb%a3%e7%a0%81">安全/代码</a></li>
+                
+            </ul>
+            
+            
+    </div>
+</div>
+
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                
+                
+
+                <p>© 2020<br>
+Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+</p>
+            
+        </footer>
+    </div>
+</body>
+</html>

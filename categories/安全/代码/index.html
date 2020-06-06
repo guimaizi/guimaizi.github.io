@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>安全/代码 - guimaizi&#39;s blog</title>
+<meta name="description" content="">
+
+<link rel="alternate" type="application/rss+xml" href="http://www.guimaizi.com/categories/%E5%AE%89%E5%85%A8/%E4%BB%A3%E7%A0%81/index.xml" title="guimaizi's blog" />
+<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
+
+<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591454895" />
+
+
+
+<meta property="og:title" content="安全/代码" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.guimaizi.com/categories/%E5%AE%89%E5%85%A8/%E4%BB%A3%E7%A0%81/" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安全/代码"/>
+<meta name="twitter:description" content=""/>
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header> 
+            
+                <h1 class="site-header">
+    <a href="/">guimaizi&#39;s blog</a>
+</h1>
+<nav>
+    
+    
+</nav>
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+
+    <h1>Category: 安全/代码</h1>
+    <div class="article-info">
+        <a href="http://www.guimaizi.com/categories/">To all categories</a>
+    </div>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/573.html">  关于上次相声表演的主线剧本</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            1.甲方乙方安全人员有哪些选择 我从来没去过甲方和乙方 没办法回答。
+2.以前的安全人员现在的情况 有的继续做安全、成为一代宗师级大佬，有的去创业了，有的改行了，各有各的选择，有人选择安稳，有人选择搏一把,反正钱是赚不够的，生活总是如此，但是当你有更多的钱时就有能力有更多的选择余地。
+3.业余可赚钱的方式 挖洞、炒股、炒币、接私活等等，很多大佬都是这样，下班了挖洞炒股，比如袁哥 职业炒股选手 还做数学题，或者朋友介绍做些项目，我个人还有个选择 跑滴滴，送外卖现在貌似是全职 没办法选择 不然我也想体验一下&hellip;.当然技术出身改行肯定想往更高难度的技术去，金融行业是个不错的选择。
+4.团队未来的发展方向/前景 团队和朋友是不可缺的，无论是干什么，多交流才能互相提升，目标一致的一群人在一起很有趣，我有个微信群 我们十几个人 几乎包揽了今年tsrc %70以上的漏洞奖励和的年终奖，我们的目标是承包tsrc,哈哈哈。
+5.白帽子该如何自我提升 选择一个方向，刻苦钻研下去，切合实际的方向，根据自身的情况做选择。 如果单单是做技术的，技术是有瓶颈的，到了一定的程度就很难再有所提升，毕竟人始终是人，年龄大了精力就不是那么充足了，和35岁程序员中年危机是一样的，安全行业我最崇拜敬仰的是泉哥，一心练剑心无杂物，不浮躁还能一直追技术，还时不时的博客做技术分享，很羡慕这个样子，我一直怀疑这就是财务自由后的生活，哈哈哈。
+6.刷src 大多数帽子刷国内src都是用web相关的漏洞来刷，也就是辅助渗透测试的漏洞，和可以被黑产利用的漏洞，我个人衡量漏洞的标准是，这个漏洞是否有价值被黑灰产所利用,客户端漏洞很少有，都是xss\sql\逻辑越权偏多，而这些也是厂商派重兵把守的地方，其实每家厂商都有自己的扫描器和风控系统。
+关于挖掘src漏洞:  1.白帽子主要是寻找扫描器和风控系统覆盖不到的地方 2.比如domxss、越权漏洞和逻辑漏洞 3.开发运维人员的一些疏忽的点 4.还有因为厂商毕竟是赚钱是第一要务，因双十一、游戏活动之类紧急上线的业务并没有被安全部门测试过，这些通常会出现问题。 5.漏洞主要还是存在于交互处，也就是需要表单填写多的地方，这种场景大家应该会时常遇到。 6.漏洞利用，这是厂商和当前法律明令禁止的&hellip;.请参考国外博客，和自己私下测试，还有纯刷src角度，我个人觉得别用扫描器扫厂商业务，他们一个payload打过去,封ip封账号不说，爬虫爬过去说不定你就收到一张传票或者被查水表，就进去了&hellip;&hellip;.。  进阶漏洞挖掘 这个时候就要讲讲我那个微信群里可怕的大佬了，有的人职业xx邮箱选手 正文存储xss近百个，有的人职业xx云 shell了七八次，有的人渗透性选手 整天内网漫游，有的人注入选手 几十个注入，有的越权选手 xx空间任意登录四五次，有的专注于游戏业务 各种越权无限游戏技能 越权支付等等等，都是几百分的大佬。 那么他们有一个共同点，聪明帅气就不用说了，关键是人家能熬夜身体好啊，哈哈哈，多测试，专注总会出成果的。 我个人是扫描器和硬怼型选手，域名收集工具收集一大堆 然后就硬钢，我的梦想是做一个全自动挖掘机，也一直为这个梦想努力。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-12-03</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/564.html">删除微博js</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            function delWeibo() { if (!document.querySelectorAll('.screen_box a')[0]) return false; if (1) { document.querySelectorAll('.screen_box a')[0].click(); if (!document.querySelectorAll('.screen_box ul li a')[0]) return false; document.querySelectorAll('.screen_box ul li a')[0].click(); if (!document.querySelectorAll('.btn a.W_btn_a')[0]) return false; document.querySelectorAll('.btn a.W_btn_a')[0].click(); } } setInterval(window.scrollTo(0,document.body.scrollHeight), 1000); setInterval(window.scrollTo(0,document.body.scrollHeight), 1000); window.onload = setInterval(delWeibo, 1000); 
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-11-12</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/550.html">selenium异步并发方案</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            selenium异步并发方案 python3版
+# coding: utf-8 from selenium import webdriver from selenium.webdriver.chrome.options import Options from selenium.common.exceptions import TimeoutException from selenium.webdriver.support.ui import WebDriverWait chrome_options = Options() chrome_options.add_argument('--headless') chrome_options.binary_location = r'%s'%&quot;/Applications/Chromium.app/Contents/MacOS/Chromium&quot; driver = webdriver.Chrome(executable_path=&quot;/Users/guimaizi/hack-tool/chromedriver&quot;,options=chrome_options) list_url=['https://www.w3school.com.cn/js/js_loop_for.asp','http://www.voidcn.com/article/p-stvclize-bte.html', 'https://xiday.com/2019/09/21/puppeteer-run-js/','https://im.qq.com/','http://192.168.0.225/vul/frame221.html','https://en.mail.qq.com/','https://www.1688.com/', 'https://github.com/','https://www.baidu.com/','http://www.guimaizi.com/','https://fanyi.baidu.com/?aldtype=16047#auto/zh','http://es6.ruanyifeng.com/#docs/promise', 'https://security.alibaba.com/','https://security.alipay.com/home.htm','https://security.pingan.com/','https://bugbounty.huawei.com/hbp/#/home','https://www.youtube.com/watch?v=N0bypyMIt6w'] driver.get('http://www.qq.com') for url in list_url: js=&quot;window.open('%s')&quot;%url driver.execute_script(js) windows = driver.window_handles for num in windows: try: driver.switch_to.window(num) driver.set_script_timeout(5) #driver.set_page_load_timeout(5) print(driver.title) except Exception as e: print(e) finally: driver.close() driver.quit() 
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-10-24</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/535.html">puppeteer异步并发方案</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            博主是一名优秀的爬虫师,欢迎联系博主交流爬虫技术。
+ 关于puppeteer的并发方案: node代码:
+const puppeteer = require('puppeteer'); async function process_page(page){ //page.evaluate(() =&gt; alert(document.domain)); await page.on('dialog', async dialog =&gt; { await dialog.dismiss();}) console.log(page.url()); await page.close(); } async function process_queue(browser,page,list_url){ await page.evaluate(list_url =&gt; { for(i=0;i&lt;list_url.length;i++){ window.open(list_url[i]); } return 1; },list_url); while(allPages=await browser.pages(),allPages.length-2&lt;list_url.length){ await page.waitFor(3000); } for(j=0;j&lt;allPages.length;j++){ if (allPages[j]!=page){ process_page(allPages[j]); } } } (async () =&gt; { try { const list_url=['https://www.w3school.com.cn/js/js_loop_for.asp','http://www.voidcn.com/article/p-stvclize-bte.html', 'https://xiday.com/2019/09/21/puppeteer-run-js/','https://im.qq.com/','http://192.168.0.225/vul/frame221.html','https://en.mail.qq.com/','https://www.1688.com/', 'https://github.com/','https://www.baidu.com/','http://www.guimaizi.com/','https://fanyi.baidu.com/?aldtype=16047#auto/zh','http://es6.ruanyifeng.com/#docs/promise', 'https://security.alibaba.com/','https://security.alipay.com/home.htm','https://security.pingan.com/','https://bugbounty.huawei.com/hbp/#/home']; const browser = await puppeteer.launch({ headless: false, slowMo:150, timeout:5000}); const page = await browser.
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-10-04</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/516.html">516</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            稳扎稳打，轻装上阵。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-08-20</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/510.html">持续性产业化漏洞挖掘</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            作为一个全职漏洞挖掘选手，需要承受外界的很大压力，持续出漏洞的能力是最佳的缓压方式，那么持续性产业化漏洞挖掘能力以及思路就很重要,以下皆为http/s的漏洞挖掘思路,即web层黑盒漏洞挖掘。
+ 持续性 目标数据、信息持续性监测。
+* 新数据信息发现 * 旧数据信息对比更新 * 可扩展 数据信息发现方式:人工发现、机器发现、被动式网络流量监控发现等，通过安全测试者的人工操作产生的代码逻辑变动以及网络数据传输;通过机器自动操作，例如网络爬虫、各种软件模拟器操作产生的代码逻辑变动以及网络数据传输;通过搭建proxy、vpn、dns之类收集数据信息;通过某api、censys之类方式获取数据信息。 标准化保存收集到的数据信息进数据库,二次收集时进行数据对比发现数据的变化。 开放标准化接口,以便管理和扩展性。
+产业化 收集到的数据信息流水线工程化、标准统一化。 * 流水线 * 标准化 * 可扩展 建立数据存储标准,漏洞测试流程标准。 存储数据标准根据http协议以及自己的需求设置存储格式，以便整理、归纳、去重后进行数据分析处理和漏洞测试。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-08-10</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/489.html">489</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            web安全可以改名了,叫做http/s接口安全吧。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-07-06</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/482.html">burp漏扫插件</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            github:https://github.com/guimaizi/burp_lib
+介绍 burp应该是在座的诸位安全从业人员必用的测试工具,重放http/s请求包是burp最常用的功能. xss案例:
+&lt;?php $domain=$_POST['domain']; if($domain){ echo $domain; }else{ $html='&lt;form name=&quot;input&quot; action=&quot;&quot; method=&quot;post&quot;&gt; domain: &lt;input type=&quot;text&quot; name=&quot;dasdas&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domadsa112n&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domain&quot;&gt; &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt; &lt;/form&gt;'; echo $html; } ?&gt;  那么漏洞测试就是修改http请求包的参数.如sql、xss、命令执行测试,无非是在参数值后面追加payload，然后查看响应包判读是否存在漏洞,然而一个参数一个参数的测试真的很辛苦。
+如图，手工测到最后一个参数，才发现xss 不如写个脚本遍历参数值,让程序自动加上漏洞检测payload并且重放。
+点击触发扫描。
+判断响应包http响应大小与返回内容是否存在关键字，依次来判断漏洞是否存在。 请自行修改漏洞检测用payload,与分析响应包的内容。
+环境搭建 参考:Burpsuite插件的使用:https://www.freebuf.com/sectool/158005.html win10/8/7/xp
+python3.5+
+ pip install requests
+ 设置绝对路径:
+test_vul.py 25行
+burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jython 2.7.0 - Standalone Jar 版
+导入:
+2.导入我的漏洞检测
+然后就可以用了:
+码个代码不容易，大爷大妈行行好，赏碗鸡煲翅吧，希望有钱人打赏,万分感谢。 
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-06-25</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/479.html">域名收集与监测V3.0</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            github:https://github.com/guimaizi/get_domain
+简介 在职业刷src或者apt攻击者的角度，单单过一遍爆破的域名是不能满足持续性漏洞挖掘;从职业刷src的角度，过一遍收集的子域名，已经发现了所有漏洞并已经提交后修复，或者用当前漏洞测试方法并没发现有漏洞，这样业务是安全的，但这个安全是在当下时间的，企业要发展、要解决当前问题，就会出新业务、或者不断的修复更新旧问题，这就是业务的变化，通过持续性监控子域名就会发现业务的变化，最快速度的发现变化，对变化进行安全测试、漏洞挖掘。有经验的刷src的同学都知道，新业务发现漏洞概率都很高。
+环境配置 需要环境: * win10/8/7/xp
+其他请自行修改代码、反正是开源，改动也不大。 * python3
+python3.5+ 自行官方下载 * mongodb
+自行官方下载 建议docker搭建 参考:https://www.jianshu.com/p/6fdb2bcb4b43 * chrome
+自行官方下载 * chromedriver
+下载成功后放入python根目录或加入全局环境变量
+chromedriver下载地址:http://npm.taobao.org/mirrors/chromedriver/ 注:与当前chrome匹配 * subfinder
+https://github.com/subfinder/subfinder win默认带有,其他请自行修改代码。 以上配置完成,切进项目目录
+pip 安装requirements.txt
+ pip install -r requirements.txt
+ 设置config.json
+{ &quot;path&quot;:&quot;E:/code/test1&quot;, //项目所在绝对路径 &quot;target_json&quot;:&quot;E:/code/test1/target/qq.json&quot;, //目标域名文件绝对路径 &quot;chrome_path&quot;:&quot;C:/Program Files (x86)/Google/Chrome/Application/chrome.exe&quot;, //chrome文件绝对路径 &quot;timeout&quot;:8, //全局超时设置,建议大于5 &quot;mongo_config&quot;:{&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;port&quot;:27017,&quot;name&quot;:&quot;&quot;,&quot;password&quot;:&quot;&quot;} //mongodb 配置,ip 端口 name passwrod 空密码时name pwd设置为空 }  设置目标域名文件
+{ &quot;domain&quot;:&quot;.qq.com&quot;, //目标域名 必须是.xx.xxx 如.qq.com .163.com .126.net //子域名黑名单,解决泛解析问题 &quot;Blacklist_domain&quot;:[ &quot;.
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-06-25</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/470.html">专注</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            通常来说面临的数据量越大 发现有价值的数据几率越高。 但当数据量大于人类处理能力的最大值时，大量的数据却会成为负担，你无心深入每一个数据面，只是浅薄的测过就走。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-06-15</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/468.html">域名监控脑图分享</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-06-14</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/447.html">447</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            一个据说可以全自动的漏扫和当xx立牌坊有什么区别？一个好的扫描器应该是降低为了安全人员工作量，而不是想着完全替代安全从业人员。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-04-28</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/440.html">再谈src挖洞？</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            挖了有四五个月的漏洞了，有感而发，不不不、是硬怼了四五个月，总结了些技巧和经验，以前也有写过，这篇是优化下思路。
+ 挖洞流程: v1.0:看见业务就去干
+v2.0:目标资产收集-硬干
+v3.0:目标资产收集-资产分析-场景化漏洞测试(软干)
+多种挖洞模式: 硬怼模式: 乱怼、硬怼、无规则的怼、碰见参数就去xss sql rce，看见规律id之类就越权、收集一大堆目标(域名、ip)开怼、整天怼。
+佛系模式: 跟着业务活动玩、有时乱点下捡漏洞，比如有人的玩云主机、云数据库顺手捡几个高危、严重，还有人随意逛网页、或者电脑手机弹个tips,然后跟着上单引号就捡xss sql什么鬼的。 这两个模式经验值刷满，渡劫成功后，开始资深模式。
+资深模式: 因有大量的编程、代码审计、硬怼经验，视场景化挖掘漏洞(挖掘机技术哪家强&hellip;宇宙无敌量子注入轮是最强)。 你敢信某些邮箱不到半个月被人各种骚姿势正文弹框、弹了二三十次，这个姿势还没修那个骚姿势又来？wtf？然后正主还淡然奇谈说都是运气？哈哈哈，为什么？因为在一个场景化业务长期耕耘多年，正常邮箱该有那些功能、那些问题都了如指掌，js基本功扎实，专业细致~。 有人在同样的账号登录验证机制下，越权绕过数十个后台，越权发消息、发tips、文章&hellip;增、删、改、查，一个验证机制导致整个企业成百个业务出问题，而且还持续多年，一个绿帽子找到这么一个问题，随着企业的变迁，持续着收割这种类型的漏洞。
+有玩php或者mysql或者java或者nodejs或者javascript甚至chrome都很溜的分别在各自强势领域收割着漏洞，php不用说社交和数据调度展示、mysql和前端站点配合或者某些云数据库、java nodejs也有自己的适用业务环境、javascript前端审计大佬玩的很溜很溜也是导致从漏洞数量上出问题最多的语言，chrome大多客户端内嵌浏览，反正越是那种适应场景广泛的东西，越是有人盯着，在研究着。 还有资深安全从业着，通过自己的渗透、码代码、代码审计、运维经验、他只用看见目标业务一眼就知道会出现什么漏洞，再他妈的看几眼就知道这是什么cms，是那个版本的，前端后端框架用的都是啥，比业务开发运维人员还清楚！！！然后开挖机挖漏洞那就很so easy了。
+ 个人觉得漏洞挖掘也是数据分析的一个支流，收集数据(优秀的爬虫)，数据分析(去重、分类、逻辑标识),数据中价值提取(通过去重 分类好的数据进行漏洞测试，逻辑标识这个本渣只在一个只可意会不可言传的境界，要是这个搞明白也就不用手工挖洞了)。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-04-15</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/404.html">404</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            挖洞就一个字，怼 只说一次，没别的 就是怼 就是硬怼。
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-02-12</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/400.html">sql注入学习笔记</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            sql注入学习 mysql数据库名:dvwa
+database(),user()
+mysql报错注入 &lt;?php if( isset( $_REQUEST[ 'Submit' ] ) ) { // Get input $id = $_REQUEST[ 'id' ]; // Check database $query = &quot;SELECT first_name, last_name FROM users WHERE user_id = '$id';&quot;; $result = mysql_query( $query ) or die( '&lt;pre&gt;' . mysql_error() . '&lt;/pre&gt;' ); // Get results $num = mysql_numrows( $result ); $i = 0; while( $i &lt; $num ) { // Get values $first = mysql_result( $result, $i, &quot;first_name&quot; ); $last = mysql_result( $result, $i, &quot;last_name&quot; ); // Feedback for end user echo &quot;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&quot;; // Increase loop count $i++; } mysql_close(); } ?
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-02-02</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/394.html">一个辅助小工具</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            tool.html
+&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt; &lt;style&gt; body{ margin:0 auto; width:600px; height:100px} #log{width:600px} #text{width:600px} &lt;/style&gt; &lt;script src='https://code.jquery.com/jquery-3.3.1.js'&gt;&lt;/script&gt; &lt;script src='/script/tool.js'&gt;&lt;/script&gt; &lt;script&gt; document.title='Tool'; $(document).ready(function(){ $(&quot;#decodeURI&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(decodeURIComponent(str)); }); $(&quot;#encodeURI&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(encodeURIComponent(str)); }); $(&quot;#Base64_encode&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(Base64.encode(str)); }); $(&quot;#Base64_decode&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(Base64.decode(str)); }); $(&quot;#random_key&quot;).click(function(){ $(&quot;#log&quot;).val(randomWord(false, 12)+'_'); }); $(&quot;#decToHex&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(decToHex(str)); }); $(&quot;#hexToDec&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(hexToDec(str)); }); $(&quot;#stringToHex16&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(stringtoHex(str)); }); $(&quot;#hexToString16&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(hextoString(str)); }); $(&quot;#stringToEntity&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(stringToEntity(str)); }); $(&quot;#entityToString&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(entityToString(str)); }); $(&quot;#json_format&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2019-01-20</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/360.html">子域名监测源码与环境搭建</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            环境要求: ubuntu 64位
+python3 go mongodb chrome chromedriver
+代码下载链接: https://pan.baidu.com/s/18cR0wmJR7X3ukT6GQyynKQ 提取码: 26k6
+代码结构: browser.py 浏览器功能 获取html、执行js等 config.py 配置文件，一些需要的功能 mongodb_con.py mongo连接文件 start.py 开始爆破和爬取子域名获取http响应入mongo库 while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域名和爬取新域名 \subfinder 用来启动最初爆破子域名 \tmp 存放browser爬取的 href network请求的url \target 存放要监测域名的配置信息  注意 因为获取http响应的是基于chrome浏览器，模拟chrome访问，并且访问后进行多个javascript执行，所以访问每个url会比普通urllib时间要长很多，所以我添加了简易版chrome线程池以便进行多线程同步访问以便加快速度，默认是5个chrome同时模拟访问。
+环境搭建 必须执行 cd 进扫描器目录
+sudo sh install.sh
+ install.sh内代码:
+sudo apt-get install mongodb golang git python3 python3-pip xvfb unzip libxss1 libappindicator1 libindicator7 -y
+sudo pip3 install selenium pymongo
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-12-06</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/349.html">子域名监控</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            域名监控概括 子域名收集这个路子真的是被玩烂了，花样百出、工具没有八百也有一千，无非是爆破、爬、调用搜索引擎之类，有资源的大厂有自己的dns库，但是这些在我眼里真的都很low。
+为什么说很low，因为在职业刷src或者apt攻击者的角度，单单过一遍爆破的域名是不能满足**_持续性_**漏洞挖掘的;从职业刷src的角度，过一遍收集的子域名，已经发现了所有漏洞并已经提交后修复，或者用当前漏洞测试方法并没发现有漏洞，这样业务是安全的，但这个安全是在当下时间的，企业要发展、要解决当前问题，就会出新业务不断的pull代码更新旧问题，**_这就是业务的变化，通过持续性监控子域名就会发现业务的变化，最快速度的发现变化，对变化进行安全测试、漏洞挖掘_**。有经验的刷src的同学都知道，新业务发现漏洞概率都很高。
+懒惰使人创造工具，而我就拥有这么一个工具，从14年搞的子域名爆破工具(送给过一个小姐姐，刷了好多漏，如今以身为人妻，而我还没有女朋友。)，到如今的子域名监控工具。
+具体实现思路 1、通过域名爆破、搜索引擎之类方法，获得子域名后爬取子域名http响应数据保存入数据库。
+2、设定时间、可以是一分钟、一小时、一天一次循环读取库内子域名，进行爬取子域名和库类http响应数据对比，对比出变化推送提醒。
+ 从思路上是个简单的工具，但是我的集成chrome headless、subfinder，自我感觉mongodb的可视化也不错，操作便捷、使用稳定。 结果类似图上，正式版本title不会出现乱码。
+ 功能: 通过爆破、爬取收集子域名，之后循环爬取库内数据对比发现业务的变化和新业务后及时展示、推送。 域名黑名单机制，可设置过滤_.ke.qq.com、_.qzone.qq.com、*.bz.qq.com之类n级子域泛解析。
+  上面说了一大堆，重点来了，最近略穷，试用版价格只要200人民币，不是美元、不是比特币，只要一个微信红包价格,有意请联系以下微信: 
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-12-05</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/336.html">如何像我一样刷腾讯高危</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+             修改cookie uin到指定qq号 绕过登陆
+ 好了，打完收工，不挖了~江湖再见！ 
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-11-15</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/334.html">如何像我一样刷腾讯xss</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            请看以下js:
+&lt;div id=&quot;c&quot; style=&quot;margin:40px auto 0px;width:600px;text-align:center;&quot;&gt;&lt;/div&gt; &lt;script&gt; function GetQueryString(name) { var reg = new RegExp(&quot;(^|&amp;)&quot;+ name +&quot;=([^&amp;]*)(&amp;|$)&quot;); var r = window.location.search.substr(1).match(reg); if(r!=null)return decodeURIComponent(r[2]); return null; } var r=GetQueryString('r'); var reg = /^http:\/\/((.*\.qq\.com)|(localhost))\/.*]/i; if (reg.test(r)) { document.getElementById('c').innerHTML='欢迎您，454454545454'+'，&lt;a href=&quot;'+r+'&quot;&gt;返回活动&lt;/a&gt;'; } else { window.location=r; } &lt;/script&gt;  payload:
+'&quot;&gt;&lt;img src=a onerror=alert()&gt; javascript:alert() 
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-11-15</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/325.html">子域名随机收集</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            取随机数随机组合出(0-9 a-z .)字符串，dns穷举子域名
+需要环境python3.5+ mongodb、别的自己pip install *
+本来是异步的、但是requests会阻塞就线程了。
+超时时间和线程数识网络环境自己设置
+ # coding: utf-8 ''' Created on 2018年10月15日 @author: guimaizi ''' import dns.resolver,requests,random,queue,time,threadpool from pymongo import MongoClient from bs4 import BeautifulSoup class start: def __init__(self,domain): ''' :domian 子域名收集 ''' self.domain=domain #超时 self.timeout=5 #线程数 self.thread_num=100 self.domain_list=[] self.result=[] #每次任务标记 self.random=self.generate_random_str(16) def generate_random_str(self,randomlength): &quot;&quot;&quot; :randomlength 生成一个指定长度的随机字符串 &quot;&quot;&quot; random_str = '' base_str = 'abcdefghigklmnopqrstuvwxyz0123456789.' length = len(base_str) - 1 for i in range(randomlength): random_str += base_str[random.
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-10-16</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/321.html">如何艺术的刷src</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            作为一个刷src老油条来说下我的经验，我是13年开始刷src的，蝉联宇宙最厉害src tsrc四年的前五，最好成绩是第三-.-''',积分制上有一年的第一。
+ 13、14年那时候真的是如果稍微有点编程功底基本就可以制霸各大src，那个时代甚至好多厂家没有waf(web防火墙)的概念，而web2.0时代才刚开始一段时间，xss、sql、命令注入、代码执行、越权、弱口令什么鬼的到处都是，所以出了很多从零开始的黑客，历练到今年，基本都已经是独当一面的安全工程师，甚至有的还很出名很牛逼很有钱，16、17年开始行业不一样了，从以前厂商裸奔到waf的普及和安全意识的转变，然后刷src人士就不好过了，一个xss都要先绕过waf，被政策施压、各种黑客的扫描测试、乙方厂家扫描测试，相对当年已经重视和安全了很多。
+言归正传，刷src也就是批量挖漏洞，漏洞是如何产生？ 交互处常有漏洞，世界本来很安全，自从有了人，和他人，需要处理和他人各种逻辑关系时，就不安全了。
+交互流程: 这个互联网就是基于这个逻辑而存在，就如同你论坛发帖，流程:要把文字编辑好提交(输入)-&gt;论坛服务器(处理数据:标识是谁发的、属于哪个版块、哪个时间)-&gt;保存进入数据库-&gt;调用数据库内数据展示(二次处理，根据标识或者时间顺序展示等)。要至少经过这一个流程你的帖子才能发表在论坛上。
+&lt;?php /* php xss 漏洞案例 文件名:1.php 触发:www.xxx.com/1.php?xss=[evilcode] */ echo $GET_['XSS']; ?&gt;  以上是xss漏洞的交互逻辑:输入(从表单输入)-处理(前端、后端逻辑处理)-展示，漏洞在于处理输入的数据时没有考虑到数据中可能出现的风险，所以漏洞不在于输入时和展示时，而在于处理时，就如例直接展示输入的数据就造成了xss漏洞。
+漏洞是在处理时，而没有输入也不会有处理，这是个有鸡还是先有蛋的问题，这个流程才是风险的所在，那么刷src艺术的关键就在寻找这个流程，就是寻找输入点，寻找到的输入点越多，你找到漏洞的可能性越大，他的流程越是复杂，你能在这一个流程上找到漏洞就越多。
+寻找web流程/输入点(web前期情报收集) 如何刷src的第一步就是如何寻找这个流程，web常规流程:
+(数据由人输入)-&gt;(经过http/https传输至)-&gt;(web服务器apache/nginx/iis接收并解码)-&gt;(脚本语言处理数据) 这就是一个能接受数据的web服务(网站)，可以通过域名/IP访问。
+ 域名:*.org *.com *.cn *.gov *.[a-Z]
+IP:IPV4 0.0.0.0-255.255.255.255 IPV6 0:0:0:0:0:0:0:0 → ::
+ **_域名的规则_** : *.gov结尾的都是政府的web服务(网站)、*.edu结尾的都是学校/教育机构的web服务(网站),比如www.gov.cn(中国政府网) www.pku.edu.cn(北京大学)，因为是中国的网站所以结尾多出了.cn,互联网企业都会拥有域名如:www.qq.com www.168.com,而因为业务庞大繁多等原因，域名都会出现多个子域名如*.qq.com *.163.com。 ![iYMGcD.png](https://s1.ax1x.com/2018/10/09/iYMGcD.png) 如图，子域名繁多，功能不一，都是完整web服务流程，而入口的区别只在于 \[\].qq.com 括号内0-9a-Z的组合。 IP的规则 :大家都有使用过路由器，很多人还操作过，一个家用路由器分配的ip:192.168.0.1-192.168.255.255,而分配的这些ip就叫做 ip段
+ 判断是不是属于某家企业的ip和当前ip属于哪个段，http://ipwhois.cnnic.net.cn/bns/query/Query/ipwhoisQuery.do?txtquery=211.152.128.0&amp;queryOption=ipv4 利用以上域名和ip的规则大量收集web服务流程，是很重要的，能提高寻找到漏洞的概率，不过刷一家大厂的漏洞很难凭借ip来寻找到web服务，因为经过这么多年的攻防对抗，都禁止通过ip直接访问网站来防止恶意解析了，所以高效的方式还是通过域名。
+经过我的测试，开源工具Subdomain相比与其他更加高效 数据更多，所以选择Subdomain+自己写的爬虫来做域名收集、url收集、表单收集、资产监控。
+https://github.com/subfinder/subfinder
+逻辑处理(web安全漏洞测试) 收集到的url： 其实收集到的是一个基于http/s格式可控的输入点。 http/https超文本协议，而所有的web端的输入 返回都遵守这个协议。 处理也是根据这个协议传输的格式进行处理，增\删\改\查,管理数据,是目标的业务场景。
+处理中可能出现的漏洞风险: * xss * get_xss * post_xss * dom_xss * sql * 报错注入 * 盲注 * 时间延迟注入 * insert update 注入 * Mysql/Mssql/Oracle/PostgreSQL * 非关系型数据库mongodb * 命令/代码注入 * win/linux命令注入 * php/asp/jsp/.
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-10-10</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/292.html">src漏洞挖掘流程</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            资产收集   IP收集
+业务ip、办公外网、办公内网 域名收集
+主域名、子域名、dns服务商、域名信息 端口服务收集 企业信息收集
+企业信息、员工信息、github信息、社工库信息 google\百度   资产分析   企业分析
+企业类型(初创、创业、上市公司、独角兽)、所属行业、业务类型 指纹识别
+web服务识别、web脚本识别、cms识别、waf识别、端口服务识别 website表单页面收集 url参数收集
+get参数、post参数、等   漏洞测试 web漏洞测试:   参数遍历测试
+xss测试、wget\curl 命令注入盲打、sql注入测试、ssrf 敏感信息判断
+密码、电话号码、身份证、银行卡信息、家庭住址、key、等 越权(越权登录、增、删、改、查) csrf\url跳转\文件包含\文件读取\任意文件上传\逻辑漏洞\xml注入\反序列化攻击\等 弱口令 cms漏洞测试 其他   服务端漏洞测试:   弱口令 0/Nday攻击 等   poc编写 漏洞提交 
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-08-19</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/275.html">url去重处理</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            python3代码: # coding: utf-8 ''' Created on 2018年7月1日 @author: guimaizi ''' import urllib.parse,os.path,re class filter_url: def __init__(self): self.list_url_static=[] def filter_url(self,url): url=urllib.parse.urlparse(url) if url.query!='': print(self.params_filter(url)) pass elif url.query=='': self.static_filter(url) elif url.path=='': print(url) def static_filter(self,url): #伪静态与url路径处理 urls=os.path.splitext(url.path) if urls[1]!='': list_url=[] for i in urls[0].split('/'): if i!='':list_url.append('{%s:%s}'%(self.judgetype(i),len(i))) url_path=&quot;/&quot;.join(list_url) print(url.scheme + '://' + url.netloc +'/'+ url_path + urls[1]) else: list_url=[] for i in url.path.split('/'): if i!='':list_url.append('{%s:%s}'%(self.judgetype(i),len(i))) url_path=&quot;/&quot;.join(list_url) print(url.scheme + '://' + url.netloc +'/'+ url_path) def params_filter(self,url): #url参数处理 liststr = [] try: liststr = [] for i in url.
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-08-04</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/164.html">burp-jython-插件</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub('\'&rsquo;,'\&quot;',f.read())把单引号转为双引号，如图二。）
+# coding: utf-8 '&rsquo;&rsquo; @author: guimaizi '&rsquo;&rsquo; from burp import IBurpExtender from burp import IContextMenuFactory from burp import IBurpExtenderCallbacks from burp import IContextMenuInvocation from burp import IHttpRequestResponse from javax.swing import JMenuItem import os
+class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu.append(JMenuItem(self._actionName, None , actionPerformed= lambda x, inv=invocation: self.
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-04-22</div>
+    
+</div>
+      
+    </article>
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/109.html">python3语音提示股票价格</a>
+            </h1>
+        </header>
+        
+        <div class="content post-summary">
+            python3语音提示股票价格涨幅 成交量
+# coding: utf-8 '&rsquo;&rsquo;
+@author: rasca1 '&rsquo;&rsquo; import tushare as ts,subprocess,pyttsx3 from asyncio.tasks import sleep class Stock_reporting: def to_chinese(self,number): &quot;&rdquo;&rdquo; convert integer to Chinese numeral &quot;&rdquo;&rdquo; chinese_numeral_dict = { &lsquo;0&rsquo;: &lsquo;零&rsquo;, &lsquo;1&rsquo;: &lsquo;一&rsquo;, &lsquo;2&rsquo;: &lsquo;二&rsquo;, &lsquo;3&rsquo;: &lsquo;三&rsquo;, &lsquo;4&rsquo;: &lsquo;四&rsquo;, &lsquo;5&rsquo;: &lsquo;五&rsquo;, &lsquo;6&rsquo;: &lsquo;六&rsquo;, &lsquo;7&rsquo;: &lsquo;七&rsquo;, &lsquo;8&rsquo;: &lsquo;八&rsquo;, &lsquo;9&rsquo;: &lsquo;九&rsquo; } chinese_unit_map = [('&rsquo;, &lsquo;十&rsquo;, &lsquo;百&rsquo;, &lsquo;千&rsquo;), (&lsquo;万&rsquo;, &lsquo;十万&rsquo;, &lsquo;百万&rsquo;, &lsquo;千万&rsquo;), (&lsquo;亿&rsquo;, &lsquo;十亿&rsquo;, &lsquo;百亿&rsquo;, &lsquo;千亿&rsquo;), (&lsquo;兆&rsquo;, &lsquo;十兆&rsquo;, &lsquo;百兆&rsquo;, &lsquo;千兆&rsquo;), (&lsquo;吉&rsquo;, &lsquo;十吉&rsquo;, &lsquo;百吉&rsquo;, &lsquo;千吉&rsquo;)] chinese_unit_sep = [&lsquo;万&rsquo;, &lsquo;亿&rsquo;, &lsquo;兆&rsquo;, &lsquo;吉&rsquo;] reversed_n_string = reversed(str(number)) result_lst = [] unit = 0 for integer in reversed_n_string: if integer is not &lsquo;0&rsquo;: result_lst.
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2018-03-11</div>
+    
+</div>
+      
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                
+                
+
+                <p>© 2020<br>
+Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+</p>
+            
+        </footer>
+    </div>
+</body>
+</html>
