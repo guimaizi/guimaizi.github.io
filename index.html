@@ -16,7 +16,7 @@
 <link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
 
-<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591777622" />
+<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591778793" />
 
 
 
@@ -24,7 +24,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://www.guimaizi.com/" />
-<meta property="og:updated_time" content="2020-06-06T22:23:20+08:00" />
+<meta property="og:updated_time" content="2020-06-10T16:40:31+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="guimaizi&#39;s blog"/>
@@ -60,6 +60,37 @@
     </div>
 
     
+    
+    <article class="post-list">
+        <header> 
+            <h1>
+                <a href="/posts/news/hexo-hugo/">Hexo转Hugo</a>
+            </h1>
+        </header>
+
+        <div class="content post-summary">
+            hexo真的是太辣鸡了，生成一次文章好几分钟&hellip;&hellip; 然后搜了搜发现了hugo 这个玩意， 然后格式不兼容&hellip;..就写了下面这个脚本&hellip;..
+# coding: utf-8 import os log_path='/Users/guimaizi/blog/content/posts/' for root, dirs, files in os.walk(log_path): log_path_dict = dict() for filename in files: if '.md' in filename: print(filename) with open('/Users/guimaizi/blog/content/posts/%s'%filename, 'r+') as f: content = f.read() f.seek(0, 0) data='''--- title: &quot;从前&quot; date: 2020-06-06T22:23:20+08:00 draft: true --- ''' f.write(data+'\n'+content) 然后title都变成&quot;从前&rdquo;&hellip;..反正我能接受&hellip;..你们随意
+常用命令:
+hugo new article/hexo-hugo.md
+hugo -D
+        </div>
+
+        
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2020-06-10</div>
+    
+    <div class="article-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
     
     <article class="post-list">
         <header> 
@@ -295,34 +326,6 @@
         <div class="content post-summary">
             title: &lsquo;181&rsquo; url: 181.html id: 181 comments: false categories:
  思想 政治/经济 date: 2018-04-29 22:24:38 tags:   根据近代史经验，每次青壮年人口红利会带来改革与革命，和平方式是改革，战争暴力的方式就是革命，德国法西斯，日本军国主义，中国文化大革命，六四学潮，都在上次婴儿潮之后20年左右，每次青年人口爆发都是推动改革与革命的基础力量，革命与改革就要看当权者的政治眼光与决策，邓公在六四事件上就解决的很不错。
-        </div>
-
-        
-        
-
-
-<div class="article-info">
-    
-        <div class="article-date">2020-06-06</div>
-    
-    <div class="article-taxonomies">
-        
-            
-    </div>
-</div>
-
-    </article>
-    
-    <article class="post-list">
-        <header> 
-            <h1>
-                <a href="/posts/191/">从前</a>
-            </h1>
-        </header>
-
-        <div class="content post-summary">
-            title: &lsquo;191&rsquo; url: 191.html id: 191 comments: false categories:
- 思想 date: 2018-05-02 21:46:55 tags:   积少成多，做大买卖。
         </div>
 
         

@@ -6,10 +6,42 @@
     <description>guimaizi&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Jun 2020 22:23:20 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 16:40:31 +0800</lastBuildDate>
     
     <atom:link href="http://www.guimaizi.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hexo转Hugo</title>
+      <link>http://www.guimaizi.com/posts/news/hexo-hugo/</link>
+      <pubDate>Wed, 10 Jun 2020 16:40:31 +0800</pubDate>
+      
+      <guid>http://www.guimaizi.com/posts/news/hexo-hugo/</guid>
+      <description>&lt;p&gt;hexo真的是太辣鸡了，生成一次文章好几分钟&amp;hellip;&amp;hellip;   然后搜了搜发现了hugo 这个玩意，  然后格式不兼容&amp;hellip;..就写了下面这个脚本&amp;hellip;..&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# coding: utf-8
+import os
+log_path=&#39;/Users/guimaizi/blog/content/posts/&#39;
+for root, dirs, files in os.walk(log_path):
+    log_path_dict = dict()
+    for filename in files:
+        if &#39;.md&#39; in filename:
+            print(filename)
+            with open(&#39;/Users/guimaizi/blog/content/posts/%s&#39;%filename, &#39;r+&#39;) as f:
+                content = f.read()        
+                f.seek(0, 0)
+                data=&#39;&#39;&#39;---
+title: &amp;quot;从前&amp;quot;
+date: 2020-06-06T22:23:20+08:00
+draft: true
+---
+&#39;&#39;&#39;
+                f.write(data+&#39;\n&#39;+content)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后title都变成&amp;quot;从前&amp;rdquo;&amp;hellip;..反正我能接受&amp;hellip;..你们随意&lt;/p&gt;
+&lt;p&gt;常用命令:&lt;/p&gt;
+&lt;p&gt;hugo new article/hexo-hugo.md&lt;/p&gt;
+&lt;p&gt;hugo -D&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>从前</title>
