@@ -8,30 +8,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="no-referrer-when-downgrade">
 
-<title>burp-jython-插件 - guimaizi&#39;s blog</title>
+<title>从前 - guimaizi&#39;s blog</title>
 <meta name="description" content="">
 
 <link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
 <link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
 
-<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591500952" />
+<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591777622" />
 
 
 
-<meta property="og:title" content="burp-jython-插件" />
-<meta property="og:description" content="功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub(&#39;\&#39;&rsquo;,&#39;\&quot;&#39;,f.read())把单引号转为双引号，如图二。）
+<meta property="og:title" content="从前" />
+<meta property="og:description" content="title: burp-jython-插件 date: 2020-06-06T22:23:20&#43;08:00 draft: true 功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub(&#39;\&#39;&rsquo;,&#39;\&quot;&#39;,f.read())把单引号转为双引号，如图二。）
 # coding: utf-8 &#39;&rsquo;&rsquo; @author: guimaizi &#39;&rsquo;&rsquo; from burp import IBurpExtender from burp import IContextMenuFactory from burp import IBurpExtenderCallbacks from burp import IContextMenuInvocation from burp import IHttpRequestResponse from javax.swing import JMenuItem import os
-class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu.append(JMenuItem(self._actionName, None , actionPerformed= lambda x, inv=invocation: self." />
+class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.guimaizi.com/posts/burp-jython-e6-8f-92-e4-bb-b6/" />
 <meta property="article:published_time" content="2020-06-06T22:23:20+08:00" />
 <meta property="article:modified_time" content="2020-06-06T22:23:20+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="burp-jython-插件"/>
-<meta name="twitter:description" content="功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub(&#39;\&#39;&rsquo;,&#39;\&quot;&#39;,f.read())把单引号转为双引号，如图二。）
+<meta name="twitter:title" content="从前"/>
+<meta name="twitter:description" content="title: burp-jython-插件 date: 2020-06-06T22:23:20&#43;08:00 draft: true 功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub(&#39;\&#39;&rsquo;,&#39;\&quot;&#39;,f.read())把单引号转为双引号，如图二。）
 # coding: utf-8 &#39;&rsquo;&rsquo; @author: guimaizi &#39;&rsquo;&rsquo; from burp import IBurpExtender from burp import IContextMenuFactory from burp import IBurpExtenderCallbacks from burp import IContextMenuInvocation from burp import IHttpRequestResponse from javax.swing import JMenuItem import os
-class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu.append(JMenuItem(self._actionName, None , actionPerformed= lambda x, inv=invocation: self."/>
+class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu."/>
 
 
 
@@ -61,10 +61,14 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
 
     <article class="post">
         <header>
-            <h1>burp-jython-插件</h1>
+            <h1>从前</h1>
         </header>
         <div class="content">
-            <p>功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub('\'&rsquo;,'\&quot;',f.read())把单引号转为双引号，如图二。）</p>
+            <hr>
+<h2 id="draft-true">title: burp-jython-插件
+date: 2020-06-06T22:23:20+08:00
+draft: true</h2>
+<p>功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub('\'&rsquo;,'\&quot;',f.read())把单引号转为双引号，如图二。）</p>
 <p><img src="http://oswqkbo28.bkt.gdipper.com/2.png" alt=""></p>
 <p><img src="http://oswqkbo28.bkt.gdipper.com/1.png" alt=""></p>
 <p># coding: utf-8

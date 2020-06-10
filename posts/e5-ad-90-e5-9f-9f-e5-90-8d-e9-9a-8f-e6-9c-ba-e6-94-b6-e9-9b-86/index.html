@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>从前 - guimaizi&#39;s blog</title>
+<meta name="description" content="">
+
+<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
+
+<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1591777622" />
+
+
+
+<meta property="og:title" content="从前" />
+<meta property="og:description" content="title: 子域名随机收集 url: 325.html id: 325 comments: false categories:
+ 安全/代码 date: 2018-10-16 18:51:25 tags:    取随机数随机组合出(0-9 a-z .)字符串，dns穷举子域名
+需要环境python3.5&#43; mongodb、别的自己pip install *
+本来是异步的、但是requests会阻塞就线程了。
+超时时间和线程数识网络环境自己设置
+ # coding: utf-8 &#39;&#39;&#39; Created on 2018年10月15日 @author: guimaizi &#39;&#39;&#39; import dns.resolver,requests,random,queue,time,threadpool from pymongo import MongoClient from bs4 import BeautifulSoup class start: def __init__(self,domain): &#39;&#39;&#39; :domian 子域名收集 &#39;&#39;&#39; self.domain=domain #超时 self.timeout=5 #线程数 self.thread_num=100 self.domain_list=[] self.result=[] #每次任务标记 self.random=self.generate_random_str(16) def generate_random_str(self,randomlength): &quot;&quot;&quot; :randomlength 生成一个指定长度的随机字符串 &quot;&quot;&quot; random_str = &#39;&#39; base_str = &#39;abcdefghigklmnopqrstuvwxyz0123456789." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.guimaizi.com/posts/e5-ad-90-e5-9f-9f-e5-90-8d-e9-9a-8f-e6-9c-ba-e6-94-b6-e9-9b-86/" />
+<meta property="article:published_time" content="2020-06-06T22:23:20+08:00" />
+<meta property="article:modified_time" content="2020-06-06T22:23:20+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从前"/>
+<meta name="twitter:description" content="title: 子域名随机收集 url: 325.html id: 325 comments: false categories:
+ 安全/代码 date: 2018-10-16 18:51:25 tags:    取随机数随机组合出(0-9 a-z .)字符串，dns穷举子域名
+需要环境python3.5&#43; mongodb、别的自己pip install *
+本来是异步的、但是requests会阻塞就线程了。
+超时时间和线程数识网络环境自己设置
+ # coding: utf-8 &#39;&#39;&#39; Created on 2018年10月15日 @author: guimaizi &#39;&#39;&#39; import dns.resolver,requests,random,queue,time,threadpool from pymongo import MongoClient from bs4 import BeautifulSoup class start: def __init__(self,domain): &#39;&#39;&#39; :domian 子域名收集 &#39;&#39;&#39; self.domain=domain #超时 self.timeout=5 #线程数 self.thread_num=100 self.domain_list=[] self.result=[] #每次任务标记 self.random=self.generate_random_str(16) def generate_random_str(self,randomlength): &quot;&quot;&quot; :randomlength 生成一个指定长度的随机字符串 &quot;&quot;&quot; random_str = &#39;&#39; base_str = &#39;abcdefghigklmnopqrstuvwxyz0123456789."/>
+
+
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header> 
+            
+                <h1 class="site-header">
+    <a href="/">guimaizi&#39;s blog</a>
+</h1>
+<nav>
+    
+    
+</nav>
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+
+    <article class="post">
+        <header>
+            <h1>从前</h1>
+        </header>
+        <div class="content">
+            <hr>
+<p>title: 子域名随机收集
+url: 325.html
+id: 325
+comments: false
+categories:</p>
+<ul>
+<li>安全/代码
+date: 2018-10-16 18:51:25
+tags:</li>
+</ul>
+<hr>
+<blockquote>
+<p>取随机数随机组合出(0-9 a-z .)字符串，dns穷举子域名<br>
+需要环境python3.5+ mongodb、别的自己pip install *<br>
+本来是异步的、但是requests会阻塞就线程了。<br>
+超时时间和线程数识网络环境自己设置</p>
+</blockquote>
+<pre><code># coding: utf-8
+'''
+Created on 2018年10月15日
+
+@author: guimaizi
+'''
+import dns.resolver,requests,random,queue,time,threadpool
+from pymongo import MongoClient
+from bs4 import BeautifulSoup
+class start:
+    def __init__(self,domain):
+        '''
+        :domian 子域名收集
+        '''
+        self.domain=domain
+        #超时
+        self.timeout=5
+        #线程数
+        self.thread_num=100
+        self.domain_list=[]
+        self.result=[]
+        #每次任务标记
+        self.random=self.generate_random_str(16)
+    def generate_random_str(self,randomlength):
+        &quot;&quot;&quot;
+        :randomlength 生成一个指定长度的随机字符串
+        &quot;&quot;&quot;
+        random_str = ''
+        base_str = 'abcdefghigklmnopqrstuvwxyz0123456789.'
+        length = len(base_str) - 1
+        for i in range(randomlength):
+            random_str += base_str[random.randint(0, length)]
+        return random_str
+
+    def query(self,domain):
+        '''
+        dns查询存在域名
+        '''
+        myResolver = dns.resolver.Resolver()
+        myResolver.nameservers = ['8.8.8.8', '8.8.4.4']
+
+        try:
+                myAnswers = myResolver.query(domain, &quot;A&quot;)
+                self.domain_list.append(domain)
+        except Exception as e:print(e)
+    def get_http(self,domain):
+        '''
+        http获取:
+        {&quot;domain&quot;:domain,&quot;url&quot;:target_url,&quot;status_code&quot;:&quot;%s&quot;%str(r.status_code),&quot;size_html&quot;:len(r.text),&quot;title&quot;:&quot;%s&quot;%str(self.get_title(r.text)),&quot;mark&quot;:self.random,&quot;time&quot;:time.strftime('%Y-%m-%d',time.localtime())}
+        '''
+        try:
+            kv={'user_agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36'}
+            target_url='http://'+domain
+            r = requests.get(target_url,headers=kv,timeout=self.timeout)
+            r.encoding='utf-8'
+            data={&quot;domain&quot;:domain,&quot;url&quot;:target_url,&quot;status_code&quot;:&quot;%s&quot;%str(r.status_code),&quot;size_html&quot;:len(r.text),&quot;title&quot;:&quot;%s&quot;%str(self.get_title(r.text)),&quot;mark&quot;:self.random,&quot;time&quot;:time.strftime('%Y-%m-%d',time.localtime())}
+            print(data)
+            self.result.append(data)
+        except Exception as e:print(e)
+    def get_title(self,html):
+        '''
+        返回title
+        '''
+        try:
+            soup = BeautifulSoup(html, 'html5lib')
+            title = soup.find('title')
+            return title
+        except:
+            return 'not'
+    def save_result(self,data_list):
+        '''
+        #保存数据
+        :filename 文件路径及文件名
+        :data_list list数据
+        '''
+        domain=self.domain.replace('.','_')
+        f=open('%s.txt'%domain,'a',encoding='utf-8')
+        for i in data_list:
+            f.write('%s\n'%str(i))
+        f.close()
+    def threadpool_fun(self,fun,lists,num):
+        '''
+        thread多线程池
+
+        :fun 函数
+        :lists 数据
+        :num 线程数
+        '''
+        q = queue.Queue()
+        for i in lists:
+            q.put(i)
+        lst = [q.get() for i in range(q.qsize())]
+        pool = threadpool.ThreadPool(num)
+        requestss = threadpool.makeRequests(fun, lst)
+        [pool.putRequest(req) for req in requestss]
+        pool.wait()
+        pool.dismissWorkers(num, do_join=True) 
+    def run(self,list_str):
+        #去重
+        client = MongoClient(&quot;localhost&quot;, 27017)
+        db_target_domian = client.domian
+        domain=self.domain.replace('.','_')
+        collection =db_target_domian[domain]
+        list_domain=[]
+        for i in list_str:
+            i=i+'.'+self.domain
+            if collection.find({&quot;domain&quot;: &quot;%s&quot;%i}).count()==0:
+                list_domain.append(i)
+        print(list_domain)
+        #运行
+        self.threadpool_fun(self.query, list_domain, self.thread_num)
+        time.sleep(self.timeout)
+        self.threadpool_fun(self.get_http, self.domain_list, self.thread_num)
+        #写入数据
+        collection.insert(self.result,manipulate=True)
+        time.sleep(self.timeout)
+        #self.save_result(self.result)
+    def random_str(self):
+        list_str=[]
+        for i in range(1000):
+            list_str.append(self.generate_random_str(random.randint(1,10)))
+        #运行
+        self.run(list(set(list_str)))
+if __name__==&quot;__main__&quot;:
+    while 1:
+        try:
+            item=start('qq.com') 
+            item.random_str()
+        except:continue
+</code></pre>
+<p><img src="https://s1.ax1x.com/2018/10/16/iaqI41.png" alt="iaqI41.png"></p>
+
+        </div>
+        
+
+
+<div class="article-info">
+    
+        <div class="article-date">2020-06-06</div>
+    
+    <div class="article-taxonomies">
+        
+            
+    </div>
+</div>
+
+    </article>
+    
+
+
+        </main>
+        <footer>
+            
+                
+                
+
+                <p>© 2020<br>
+Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
+</p>
+            
+        </footer>
+    </div>
+</body>
+</html>
