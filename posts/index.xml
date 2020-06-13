@@ -6,10 +6,25 @@
     <description>guimaizi&#39;s blog (Posts)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 16:40:31 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2020 21:15:12 +0800</lastBuildDate>
     
     <atom:link href="http://www.guimaizi.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>好像向生活低头了</title>
+      <link>http://www.guimaizi.com/posts/low-life/</link>
+      <pubDate>Sat, 13 Jun 2020 21:15:12 +0800</pubDate>
+      
+      <guid>http://www.guimaizi.com/posts/low-life/</guid>
+      <description>&lt;p&gt;我这种人真的居然向生活低头&amp;hellip;..草他妈的    哈哈哈 我也是服了。&lt;/p&gt;
+&lt;p&gt;因为博客的后端的问题比较麻烦，好久没更博客，没想到更新博客时我居然变成这样，我喜欢用mac 但因为配置不能满足我，我就要把他卖掉  能满足我的配置 很贵  但也不是买不起，但是没有必要&amp;hellip;..堕落到7K的本子&amp;hellip;..理想和喜欢到最后还是要面对现实&amp;hellip;..&lt;/p&gt;
+&lt;p&gt;我以前是那么桀骜不驯&amp;hellip;.天下第一&amp;hellip;..理想主义..哦&amp;hellip;.不&amp;hellip;.梦想主义，期待着人生所有美好,到底是什么抹杀了这些，是时间 是病痛 是年龄，是越来越看清了自己？ 其实吧傻傻的挺好&amp;hellip;&amp;hellip;我也不是很想看清着自己&amp;hellip;..&lt;/p&gt;
+&lt;p&gt;怎么这么难啊    人生&amp;hellip;.. 没有别的要求   只希望不要忘记善良。&lt;/p&gt;
+&lt;p&gt;那么多的经历并不能让自己开心，如果不能开心 我希望少点经历，就想像小孩那样单纯的开心快乐。&lt;/p&gt;
+&lt;p&gt;怎么能找到一个适合我的 有趣的她&amp;hellip;.. 怎么才能自律到极致&amp;hellip;..  怎么才能快乐开心&amp;hellip;&amp;hellip;   怎么才能身体健康啊&amp;hellip;..&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Hexo转Hugo</title>
