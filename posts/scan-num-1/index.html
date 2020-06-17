@@ -1,24 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en-us">
+
 <head>
-    
-        
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer-when-downgrade">
-
-<title>从前 - guimaizi&#39;s blog</title>
-<meta name="description" content="">
-
-<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
-
-<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1592055418" />
-
-
-
-<meta property="og:title" content="从前" />
+  <title>guimaizi&#39;s blog</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="从前" />
 <meta property="og:description" content="title: 被动扫描器 date: 2020-03-07 17:50:33 tags: 扫描器 介绍 好久没有更技术文章了，今天更一个，算是造了一个轮子，花费了我很大精力，一个&quot;web安全被动常规漏洞扫描器&rdquo;，在全网范围内数万甚至数十万的web漏洞扫描器中，我的扫描器如何出众? 哈哈哈&hellip;可能也不是多么出众，但是我这种一线技术人员、一线实战派web漏洞挖掘选手觉得很实用，很实在，并不花里胡哨的。
 既然是web漏洞扫描器，那么就要基本了解下什么是web漏洞挖掘，说白了就是修改http/s请求包的数据。
 如图，很标椎的一个http请求包，也是很标准的一个xss漏洞，那么判断xss的方式就是修改name参数的值，然后判断http的响应内容，如此来判断xss的漏洞存在，通常我们会手工在name参数追加payload:
@@ -45,38 +34,63 @@
 格式:
 {&quot;headers&quot;: { &quot;Origin&quot;: &quot;http://192.168.0.137&quot;, &quot;Cookie&quot;: &quot;PHPSESSID=fjkq8kiuutn3hkoj4uppsg30da&quot;, &quot;Accept&quot;: &quot;application/json, text/javascript, */*; q=0.01&quot;, &quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;, &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4009.0 Safari/537.36&quot;, &quot;Referer&quot;: &quot;http://192.168.0.137/12345.php&quot;, &quot;Connection&quot;: &quot;close&quot;, &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, &quot;Accept-Language&quot;: &quot;en-US, en;q=0."/>
 
-
-
-
-
-
-
+<meta name="generator" content="Hugo 0.72.0" />
     
-</head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://www.guimaizi.com/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
 <body>
-    <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="container">
-        <header> 
-            
-                <h1 class="site-header">
-    <a href="/">guimaizi&#39;s blog</a>
-</h1>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">guimaizi&rsquo;s blog</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
 <nav>
-    
-    
+    <ul>
+        
+    </ul>
 </nav>
 
-            
-        </header>
-        <main id="main" tabindex="-1"> 
-            
 
-    <article class="post">
-        <header>
-            <h1>从前</h1>
-        </header>
-        <div class="content">
-            <hr>
+    <main>
+
+
+
+
+<article>
+
+    <h1>从前</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <hr>
 <h2 id="tags-扫描器">title: 被动扫描器
 date: 2020-03-07 17:50:33
 tags: 扫描器</h2>
@@ -136,35 +150,43 @@ tags: 扫描器</h2>
 <p>联系方式WeChat :</p>
 <p><img src="https://raw.githubusercontent.com/guimaizi/cloud/test/img/20200307193002.jpg" alt=""></p>
 
-        </div>
-        
+
+</article>
 
 
-<div class="article-info">
-    
-        <div class="article-date">2020-06-06</div>
-    
-    <div class="article-taxonomies">
+<section class="post-nav">
+    <ul>
         
-            
-    </div>
+        <li>
+            <a href="http://www.guimaizi.com/posts/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://www.guimaizi.com/posts/python3-e8-af-ad-e9-9f-b3-e6-8f-90-e7-a4-ba-e8-82-a1-e7-a5-a8-e4-bb-b7-e6-a0-bc/">从前 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://www.guimaizi.com/index.xml">Subscribe </a></h6>
+    </footer>
 </div>
+<script src="/js/scripts.js"></script>
 
-    </article>
-    
-
-
-        </main>
-        <footer>
-            
-                
-                
-
-                <p>© 2020<br>
-Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
-</p>
-            
-        </footer>
-    </div>
 </body>
+
 </html>
+

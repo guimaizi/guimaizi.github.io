@@ -1,24 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en-us">
+
 <head>
-    
-        
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer-when-downgrade">
-
-<title>从前 - guimaizi&#39;s blog</title>
-<meta name="description" content="">
-
-<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
-
-<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1592055418" />
-
-
-
-<meta property="og:title" content="从前" />
+  <title>guimaizi&#39;s blog</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="从前" />
 <meta property="og:description" content="title: url去重处理 url: 275.html id: 275 comments: false categories:
  安全/代码 date: 2018-08-04 17:47:01 tags:   python3代码: # coding: utf-8 &#39;&#39;&#39; Created on 2018年7月1日 @author: guimaizi &#39;&#39;&#39; import urllib.parse,os.path,re class filter_url: def __init__(self): self.list_url_static=[] def filter_url(self,url): url=urllib.parse.urlparse(url) if url.query!=&#39;&#39;: print(self.params_filter(url)) pass elif url.query==&#39;&#39;: self.static_filter(url) elif url.path==&#39;&#39;: print(url) def static_filter(self,url): #伪静态与url路径处理 urls=os.path.splitext(url.path) if urls[1]!=&#39;&#39;: list_url=[] for i in urls[0].split(&#39;/&#39;): if i!=&#39;&#39;:list_url.append(&#39;{%s:%s}&#39;%(self.judgetype(i),len(i))) url_path=&quot;/&quot;.join(list_url) print(url.scheme &#43; &#39;://&#39; &#43; url.netloc &#43;&#39;/&#39;&#43; url_path &#43; urls[1]) else: list_url=[] for i in url." />
 <meta property="og:type" content="article" />
@@ -31,38 +20,63 @@
 <meta name="twitter:description" content="title: url去重处理 url: 275.html id: 275 comments: false categories:
  安全/代码 date: 2018-08-04 17:47:01 tags:   python3代码: # coding: utf-8 &#39;&#39;&#39; Created on 2018年7月1日 @author: guimaizi &#39;&#39;&#39; import urllib.parse,os.path,re class filter_url: def __init__(self): self.list_url_static=[] def filter_url(self,url): url=urllib.parse.urlparse(url) if url.query!=&#39;&#39;: print(self.params_filter(url)) pass elif url.query==&#39;&#39;: self.static_filter(url) elif url.path==&#39;&#39;: print(url) def static_filter(self,url): #伪静态与url路径处理 urls=os.path.splitext(url.path) if urls[1]!=&#39;&#39;: list_url=[] for i in urls[0].split(&#39;/&#39;): if i!=&#39;&#39;:list_url.append(&#39;{%s:%s}&#39;%(self.judgetype(i),len(i))) url_path=&quot;/&quot;.join(list_url) print(url.scheme &#43; &#39;://&#39; &#43; url.netloc &#43;&#39;/&#39;&#43; url_path &#43; urls[1]) else: list_url=[] for i in url."/>
 
-
-
-
-
-
-
+<meta name="generator" content="Hugo 0.72.0" />
     
-</head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://www.guimaizi.com/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
 <body>
-    <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="container">
-        <header> 
-            
-                <h1 class="site-header">
-    <a href="/">guimaizi&#39;s blog</a>
-</h1>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">guimaizi&rsquo;s blog</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
 <nav>
-    
-    
+    <ul>
+        
+    </ul>
 </nav>
 
-            
-        </header>
-        <main id="main" tabindex="-1"> 
-            
 
-    <article class="post">
-        <header>
-            <h1>从前</h1>
-        </header>
-        <div class="content">
-            <hr>
+    <main>
+
+
+
+
+<article>
+
+    <h1>从前</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <hr>
 <p>title: url去重处理
 url: 275.html
 id: 275
@@ -156,35 +170,43 @@ if __name__ == '__main__':
 <a href="https://security.tencent.com/index.php/blog/msg/34">SuperSpider——打造功能强大的爬虫利器</a><br>
 <a href="https://github.com/guimaizi/nimendoushilaji">爬虫+扫描器</a></p>
 
-        </div>
-        
+
+</article>
 
 
-<div class="article-info">
-    
-        <div class="article-date">2020-06-06</div>
-    
-    <div class="article-taxonomies">
+<section class="post-nav">
+    <ul>
         
-            
-    </div>
+        <li>
+            <a href="http://www.guimaizi.com/posts/warning-ef-bc-81warning-ef-bc-81warning-ef-bc-81/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://www.guimaizi.com/posts/src-e6-bc-8f-e6-b4-9e-e6-8c-96-e6-8e-98-e6-b5-81-e7-a8-8b/">从前 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://www.guimaizi.com/index.xml">Subscribe </a></h6>
+    </footer>
 </div>
+<script src="/js/scripts.js"></script>
 
-    </article>
-    
-
-
-        </main>
-        <footer>
-            
-                
-                
-
-                <p>© 2020<br>
-Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
-</p>
-            
-        </footer>
-    </div>
 </body>
+
 </html>
+

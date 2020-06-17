@@ -1,24 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en-us">
+
 <head>
-    
-        
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer-when-downgrade">
-
-<title>从前 - guimaizi&#39;s blog</title>
-<meta name="description" content="">
-
-<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
-
-<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1592055418" />
-
-
-
-<meta property="og:title" content="从前" />
+  <title>guimaizi&#39;s blog</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="从前" />
 <meta property="og:description" content="title: selenium异步并发方案 url: 550.html id: 550 comments: false categories:
  安全/代码 date: 2019-10-24 21:20:04 tags:   selenium异步并发方案 python3版
 # coding: utf-8 from selenium import webdriver from selenium.webdriver.chrome.options import Options from selenium.common.exceptions import TimeoutException from selenium.webdriver.support.ui import WebDriverWait chrome_options = Options() chrome_options.add_argument(&#39;--headless&#39;) chrome_options.binary_location = r&#39;%s&#39;%&quot;/Applications/Chromium.app/Contents/MacOS/Chromium&quot; driver = webdriver.Chrome(executable_path=&quot;/Users/guimaizi/hack-tool/chromedriver&quot;,options=chrome_options) list_url=[&#39;https://www.w3school.com.cn/js/js_loop_for.asp&#39;,&#39;http://www.voidcn.com/article/p-stvclize-bte.html&#39;, &#39;https://xiday.com/2019/09/21/puppeteer-run-js/&#39;,&#39;https://im.qq.com/&#39;,&#39;http://192.168.0.225/vul/frame221.html&#39;,&#39;https://en.mail.qq.com/&#39;,&#39;https://www.1688.com/&#39;, &#39;https://github.com/&#39;,&#39;https://www.baidu.com/&#39;,&#39;http://www.guimaizi.com/&#39;,&#39;https://fanyi.baidu.com/?aldtype=16047#auto/zh&#39;,&#39;http://es6.ruanyifeng.com/#docs/promise&#39;, &#39;https://security.alibaba.com/&#39;,&#39;https://security.alipay.com/home.htm&#39;,&#39;https://security.pingan.com/&#39;,&#39;https://bugbounty.huawei.com/hbp/#/home&#39;,&#39;https://www.youtube.com/watch?v=N0bypyMIt6w&#39;] driver.get(&#39;http://www.qq.com&#39;) for url in list_url: js=&quot;window.open(&#39;%s&#39;)&quot;%url driver.execute_script(js) windows = driver.window_handles for num in windows: try: driver.switch_to.window(num) driver.set_script_timeout(5) #driver." />
@@ -33,38 +22,63 @@
  安全/代码 date: 2019-10-24 21:20:04 tags:   selenium异步并发方案 python3版
 # coding: utf-8 from selenium import webdriver from selenium.webdriver.chrome.options import Options from selenium.common.exceptions import TimeoutException from selenium.webdriver.support.ui import WebDriverWait chrome_options = Options() chrome_options.add_argument(&#39;--headless&#39;) chrome_options.binary_location = r&#39;%s&#39;%&quot;/Applications/Chromium.app/Contents/MacOS/Chromium&quot; driver = webdriver.Chrome(executable_path=&quot;/Users/guimaizi/hack-tool/chromedriver&quot;,options=chrome_options) list_url=[&#39;https://www.w3school.com.cn/js/js_loop_for.asp&#39;,&#39;http://www.voidcn.com/article/p-stvclize-bte.html&#39;, &#39;https://xiday.com/2019/09/21/puppeteer-run-js/&#39;,&#39;https://im.qq.com/&#39;,&#39;http://192.168.0.225/vul/frame221.html&#39;,&#39;https://en.mail.qq.com/&#39;,&#39;https://www.1688.com/&#39;, &#39;https://github.com/&#39;,&#39;https://www.baidu.com/&#39;,&#39;http://www.guimaizi.com/&#39;,&#39;https://fanyi.baidu.com/?aldtype=16047#auto/zh&#39;,&#39;http://es6.ruanyifeng.com/#docs/promise&#39;, &#39;https://security.alibaba.com/&#39;,&#39;https://security.alipay.com/home.htm&#39;,&#39;https://security.pingan.com/&#39;,&#39;https://bugbounty.huawei.com/hbp/#/home&#39;,&#39;https://www.youtube.com/watch?v=N0bypyMIt6w&#39;] driver.get(&#39;http://www.qq.com&#39;) for url in list_url: js=&quot;window.open(&#39;%s&#39;)&quot;%url driver.execute_script(js) windows = driver.window_handles for num in windows: try: driver.switch_to.window(num) driver.set_script_timeout(5) #driver."/>
 
-
-
-
-
-
-
+<meta name="generator" content="Hugo 0.72.0" />
     
-</head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://www.guimaizi.com/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
 <body>
-    <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="container">
-        <header> 
-            
-                <h1 class="site-header">
-    <a href="/">guimaizi&#39;s blog</a>
-</h1>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">guimaizi&rsquo;s blog</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
 <nav>
-    
-    
+    <ul>
+        
+    </ul>
 </nav>
 
-            
-        </header>
-        <main id="main" tabindex="-1"> 
-            
 
-    <article class="post">
-        <header>
-            <h1>从前</h1>
-        </header>
-        <div class="content">
-            <hr>
+    <main>
+
+
+
+
+<article>
+
+    <h1>从前</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <hr>
 <p>title: selenium异步并发方案
 url: 550.html
 id: 550
@@ -107,35 +121,43 @@ for num in windows:
         driver.close()
 driver.quit()</code></pre>
 
-        </div>
-        
+
+</article>
 
 
-<div class="article-info">
-    
-        <div class="article-date">2020-06-06</div>
-    
-    <div class="article-taxonomies">
+<section class="post-nav">
+    <ul>
         
-            
-    </div>
+        <li>
+            <a href="http://www.guimaizi.com/posts/sql-e6-b3-a8-e5-85-a5-e5-ad-a6-e4-b9-a0-e7-ac-94-e8-ae-b0/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://www.guimaizi.com/posts/scan-num-1/">从前 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://www.guimaizi.com/index.xml">Subscribe </a></h6>
+    </footer>
 </div>
+<script src="/js/scripts.js"></script>
 
-    </article>
-    
-
-
-        </main>
-        <footer>
-            
-                
-                
-
-                <p>© 2020<br>
-Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
-</p>
-            
-        </footer>
-    </div>
 </body>
+
 </html>
+

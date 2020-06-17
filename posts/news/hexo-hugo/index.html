@@ -1,24 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en-us">
+
 <head>
-    
-        
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="referrer" content="no-referrer-when-downgrade">
-
-<title>Hexo转Hugo - guimaizi&#39;s blog</title>
-<meta name="description" content="">
-
-<link rel="icon" type="image/x-icon" href="http://www.guimaizi.com/favicon.ico">
-<link rel="apple-touch-icon-precomposed" href="http://www.guimaizi.com/favicon.png">
-
-<link rel="stylesheet" href="http://www.guimaizi.com/css/style.css?rnd=1592055418" />
-
-
-
-<meta property="og:title" content="Hexo转Hugo" />
+  <title>guimaizi&#39;s blog</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Hexo转Hugo" />
 <meta property="og:description" content="hexo真的是太辣鸡了，生成一次文章好几分钟&hellip;&hellip; 然后搜了搜发现了hugo 这个玩意， 然后格式不兼容&hellip;..就写了下面这个脚本&hellip;..
 # coding: utf-8 import os log_path=&#39;/Users/guimaizi/blog/content/posts/&#39; for root, dirs, files in os.walk(log_path): log_path_dict = dict() for filename in files: if &#39;.md&#39; in filename: print(filename) with open(&#39;/Users/guimaizi/blog/content/posts/%s&#39;%filename, &#39;r&#43;&#39;) as f: content = f.read() f.seek(0, 0) data=&#39;&#39;&#39;--- title: &quot;从前&quot; date: 2020-06-06T22:23:20&#43;08:00 draft: true --- &#39;&#39;&#39; f.write(data&#43;&#39;\n&#39;&#43;content) 然后title都变成&quot;从前&rdquo;&hellip;..反正我能接受&hellip;..你们随意
 常用命令:
@@ -37,38 +26,63 @@ hugo -D" />
 hugo new article/hexo-hugo.md
 hugo -D"/>
 
-
-
-
-
-
-
+<meta name="generator" content="Hugo 0.72.0" />
     
-</head>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://www.guimaizi.com/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
 <body>
-    <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="container">
-        <header> 
-            
-                <h1 class="site-header">
-    <a href="/">guimaizi&#39;s blog</a>
-</h1>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">guimaizi&rsquo;s blog</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
 <nav>
-    
-    
+    <ul>
+        
+    </ul>
 </nav>
 
-            
-        </header>
-        <main id="main" tabindex="-1"> 
-            
 
-    <article class="post">
-        <header>
-            <h1>Hexo转Hugo</h1>
-        </header>
-        <div class="content">
-            <p>hexo真的是太辣鸡了，生成一次文章好几分钟&hellip;&hellip;   然后搜了搜发现了hugo 这个玩意，  然后格式不兼容&hellip;..就写了下面这个脚本&hellip;..</p>
+    <main>
+
+
+
+
+<article>
+
+    <h1>Hexo转Hugo</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-10T16:40:31&#43;08:00">Jun 10, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>hexo真的是太辣鸡了，生成一次文章好几分钟&hellip;&hellip;   然后搜了搜发现了hugo 这个玩意，  然后格式不兼容&hellip;..就写了下面这个脚本&hellip;..</p>
 <pre><code># coding: utf-8
 import os
 log_path='/Users/guimaizi/blog/content/posts/'
@@ -92,35 +106,43 @@ draft: true
 <p>hugo new article/hexo-hugo.md</p>
 <p>hugo -D</p>
 
-        </div>
-        
+
+</article>
 
 
-<div class="article-info">
-    
-        <div class="article-date">2020-06-10</div>
-    
-    <div class="article-taxonomies">
+<section class="post-nav">
+    <ul>
         
-            
-    </div>
+        <li>
+            <a href="http://www.guimaizi.com/posts/104/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
+        </li>
+        
+        
+        <li>
+            <a href="http://www.guimaizi.com/posts/low-life/">好像向生活低头了 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://www.guimaizi.com/index.xml">Subscribe </a></h6>
+    </footer>
 </div>
+<script src="/js/scripts.js"></script>
 
-    </article>
-    
-
-
-        </main>
-        <footer>
-            
-                
-                
-
-                <p>© 2020<br>
-Powered by <a target="_blank" href="https://gohugo.io/">Hugo</a>, theme <a target="_blank" href="https://github.com/mitrichius/hugo-theme-anubis">Anubis</a>.
-</p>
-            
-        </footer>
-    </div>
 </body>
+
 </html>
+
