@@ -12,7 +12,7 @@
 # coding: utf-8 &#39;&rsquo;&rsquo; @author: guimaizi &#39;&rsquo;&rsquo; from burp import IBurpExtender from burp import IContextMenuFactory from burp import IBurpExtenderCallbacks from burp import IContextMenuInvocation from burp import IHttpRequestResponse from javax.swing import JMenuItem import os
 class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://guimaizi.com/posts/burp-jython-e6-8f-92-e4-bb-b6/" />
+<meta property="og:url" content="https://www.guimaizi.com/posts/burp-jython-e6-8f-92-e4-bb-b6/" />
 <meta property="article:published_time" content="2020-06-06T22:23:20+08:00" />
 <meta property="article:modified_time" content="2020-06-06T22:23:20+08:00" />
 
@@ -26,7 +26,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
     
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://guimaizi.com/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://www.guimaizi.com/fontawesome/css/all.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
   <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
 
@@ -156,12 +156,12 @@ import os</p>
     <ul>
         
         <li>
-            <a href="https://guimaizi.com/posts/e3-80-8a-e7-99-bd-e8-9b-87-e7-bc-98-e8-b5-b7-e3-80-8b/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
+            <a href="https://www.guimaizi.com/posts/e3-80-8a-e7-99-bd-e8-9b-87-e7-bc-98-e8-b5-b7-e3-80-8b/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
         </li>
         
         
         <li>
-            <a href="https://guimaizi.com/posts/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/">从前 <i class="fa fa-chevron-circle-right"></i> </a>
+            <a href="https://www.guimaizi.com/posts/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/">从前 <i class="fa fa-chevron-circle-right"></i> </a>
         </li>
         
     </ul>
@@ -179,7 +179,7 @@ import os</p>
     <footer>
         <h6> |
             Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
-            <a href="https://guimaizi.com/index.xml">Subscribe </a></h6>
+            <a href="https://www.guimaizi.com/index.xml">Subscribe </a></h6>
     </footer>
 </div>
 <script src="/js/scripts.js"></script>
