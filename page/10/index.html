@@ -11,7 +11,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.guimaizi.com/" />
-<meta property="og:updated_time" content="2020-06-13T21:15:12+08:00" />
+<meta property="og:updated_time" content="2020-06-20T23:48:16+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="guimaizi&#39;s blog"/>
@@ -67,6 +67,29 @@
     
 
     <li class="first" >
+      <h1><a href="https://www.guimaizi.com/posts/596/" title="从前">从前</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>title: &lsquo;596&rsquo; url: 596.html id: 596 comments: false categories:
+ 思想 生活 date: 2020-02-16 01:01:13 tags:   别为了那些不属于你的观众，去演绎你不擅长的人生。</p>
+      
+    </li>
+    
+
+    <li >
       <h1><a href="https://www.guimaizi.com/posts/66/" title="从前">从前</a></h1>
       <aside>
     <ul>
@@ -285,32 +308,6 @@ burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jyth
 2.导入我的漏洞检测</p>
       
       <a href="/posts/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/">Read more…</a>
-      
-    </li>
-    
-
-    <li >
-      <h1><a href="https://www.guimaizi.com/posts/burp-jython-e6-8f-92-e4-bb-b6/" title="从前">从前</a></h1>
-      <aside>
-    <ul>
-        <li>
-            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
-        </li>
-        
-
-        
-
-        <li>One minute read</li>
-    </ul>
-</aside>
-
-      
-
-      <p>title: burp-jython-插件 date: 2020-06-06T22:23:20+08:00 draft: true 功能:把burp获取的数据转换为json保存进tmp.json(有个bug、可能因为java的原因，保存的json数据是单引号，非标准json格式，需要re.sub('\'&rsquo;,'\&quot;',f.read())把单引号转为双引号，如图二。）
-# coding: utf-8 '&rsquo;&rsquo; @author: guimaizi '&rsquo;&rsquo; from burp import IBurpExtender from burp import IContextMenuFactory from burp import IBurpExtenderCallbacks from burp import IContextMenuInvocation from burp import IHttpRequestResponse from javax.swing import JMenuItem import os
-class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu.</p>
-      
-      <a href="/posts/burp-jython-e6-8f-92-e4-bb-b6/">Read more…</a>
       
     </li>
     

@@ -6,10 +6,64 @@
    <description>Recent content on guimaizi&#39;s blog</description>
    <generator>Hugo -- gohugo.io</generator>
    <language>en-us</language>
-   <lastBuildDate>Sat, 13 Jun 2020 21:15:12 +0800</lastBuildDate>
+   <lastBuildDate>Sat, 20 Jun 2020 23:48:16 +0800</lastBuildDate>
    
        <atom:link href="https://www.guimaizi.com/index.xml" rel="self" type="application/rss+xml" />
    
+   
+     <item>
+       <title>Chormium_develop</title>
+       <link>https://www.guimaizi.com/posts/news/chormium_develop/</link>
+       <pubDate>Sat, 20 Jun 2020 23:48:16 +0800</pubDate>
+       
+       <guid>https://www.guimaizi.com/posts/news/chormium_develop/</guid>
+       <description>&lt;h3 id=&#34;系统要求&#34;&gt;系统要求&lt;/h3&gt;
+&lt;p&gt;A 64-bit Intel machine with at least 8GB of RAM. More than 16GB is highly recommended.&lt;br&gt;
+At least 100GB of free disk space on an NTFS-formatted hard drive. FAT32 will not work, as some of the Git packfiles are larger than 4GB.&lt;br&gt;
+An appropriate version of Visual Studio, as described below.&lt;br&gt;
+Windows 7 or newer.&lt;br&gt;
+&lt;strong&gt;win7+ 100g硬盘  8g内存+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;种花家局域网内需要梯子 http/s socket5代理，我的是ss+kcptun,youtube1080p无压力。&lt;/p&gt;
+&lt;h3 id=&#34;下载安装包&#34;&gt;下载安装包&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://storage.googleapis.com/chrome-infra/depot_tools.zip&#34;&gt;https://storage.googleapis.com/chrome-infra/depot_tools.zip&lt;/a&gt;&lt;br&gt;
+下载解压 depot_tools 后，先配置proxy，用管理员打开命令行&lt;/p&gt;
+&lt;h3 id=&#34;开始搭建&#34;&gt;开始搭建&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;设置代理
+netsh winhttp set proxy 127.0.0.1:1080 #管理员下执行该命令
+git config --global http.proxy http://localhost:1080
+git config --global https.proxy http://localhost:1080
+set https_proxy=http://localhost:1080
+set http_proxy=http://localhost:1080
+
+设置环境变量
+G:\depot_tools 在path最上，不然python会冲突
+
+设置git
+git config --global user.name &amp;quot;guimaizi&amp;quot;
+git config --global user.email &amp;quot;635713319@qq.com&amp;quot;
+git config --global core.autocrlf false
+git config --global core.filemode false
+git config --global branch.autosetuprebase always
+
+拉去源码
+fetch  --no-history chromium   # --no-history 只下载最新版本，不然下100g左右，翻墙网络不稳定就很麻烦， 单个最新版本22g左右。还可以接受。
+gclient async  # 上面这条命令执行异常后，可用这条重新拉去源码
+
+
+
+更新源码
+cd xxxxx/src
+git rebase-update 
+gclient async
+
+编译
+gn gen out/Default
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;参考链接&#34;&gt;参考链接:&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md&#34;&gt;https://chromium.googlesource.com/chromium/src/+/master/docs/windows_build_instructions.md&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://yplam.com/post/chromium/chromium-build-debug/&#34;&gt;https://yplam.com/post/chromium/chromium-build-debug/&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://www.itmaohome.com/category/github-center/software-development/chromium%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91&#34;&gt;https://www.itmaohome.com/category/github-center/software-development/chromium%e4%ba%8c%e6%ac%a1%e5%bc%80%e5%8f%91&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
    
      <item>
        <title>好像向生活低头了</title>

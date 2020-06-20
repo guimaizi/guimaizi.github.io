@@ -11,7 +11,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.guimaizi.com/" />
-<meta property="og:updated_time" content="2020-06-13T21:15:12+08:00" />
+<meta property="og:updated_time" content="2020-06-20T23:48:16+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="guimaizi&#39;s blog"/>
@@ -67,6 +67,34 @@
     
 
     <li class="first" >
+      <h1><a href="https://www.guimaizi.com/posts/hello-world-1/" title="从前">从前</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>title: about date: 2018-01-23 11:55:41 tags: About Blog  深山中，似寻常 似深寂 似磅礴，一眼望去尽是空。
+意境中，时嗔痴 时机妙 时沸腾，一念过去尽是空。
+生来不受拘束，一生追梦，纵横人世间24载，愿尝试各种乐趣。
+ 擅长挖掘事物本质，想出自己的看法。 研究a股，专注于企业模式、行业模式等各种商业模式的各种研究。 熟悉python\php\java\c\c++\汇编\mysql\javascript，web、pc、Android等计算机相关都有所了解,在2017以前一直研究信息安全。
+如对本人感兴趣、意见，可通过以下方式联系。
+微信(wechat) :
+twitter: @guimaizi E-mail : admin@guimaizi.com</p>
+      
+    </li>
+    
+
+    <li >
       <h1><a href="https://www.guimaizi.com/posts/hey-2019/" title="从前">从前</a></h1>
       <aside>
     <ul>
@@ -321,31 +349,6 @@ web服务识别、web脚本识别、cms识别、waf识别、端口服务识别 w
 get参数、post参数、等   漏洞测试 web漏洞测试:   参数遍历测试
 xss测试、wget\curl 命令注入盲打、sql注入测试、ssrf 敏感信息判断
 密码、电话号码、身份证、银行卡信息、家庭住址、key、等 越权(越权登录、增、删、改、查) csrf\url跳转\文件包含\文件读取\任意文件上传\逻辑漏洞\xml注入\反序列化攻击\等 弱口令 cms漏洞测试 其他   服务端漏洞测试:   弱口令 0/Nday攻击 等   poc编写 漏洞提交 </p>
-      
-    </li>
-    
-
-    <li >
-      <h1><a href="https://www.guimaizi.com/posts/url-e5-8e-bb-e9-87-8d/" title="从前">从前</a></h1>
-      <aside>
-    <ul>
-        <li>
-            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
-        </li>
-        
-
-        
-
-        <li>One minute read</li>
-    </ul>
-</aside>
-
-      
-
-      <p>title: url去重处理 url: 275.html id: 275 comments: false categories:
- 安全/代码 date: 2018-08-04 17:47:01 tags:   python3代码: # coding: utf-8 ''' Created on 2018年7月1日 @author: guimaizi ''' import urllib.parse,os.path,re class filter_url: def __init__(self): self.list_url_static=[] def filter_url(self,url): url=urllib.parse.urlparse(url) if url.query!='': print(self.params_filter(url)) pass elif url.query=='': self.static_filter(url) elif url.path=='': print(url) def static_filter(self,url): #伪静态与url路径处理 urls=os.path.splitext(url.path) if urls[1]!='': list_url=[] for i in urls[0].split('/'): if i!='':list_url.append('{%s:%s}'%(self.judgetype(i),len(i))) url_path=&quot;/&quot;.join(list_url) print(url.scheme + '://' + url.netloc +'/'+ url_path + urls[1]) else: list_url=[] for i in url.</p>
-      
-      <a href="/posts/url-e5-8e-bb-e9-87-8d/">Read more…</a>
       
     </li>
     
