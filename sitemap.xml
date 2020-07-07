@@ -3,27 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://www.guimaizi.com/</loc>
+    <lastmod>2020-07-07T12:19:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.guimaizi.com/posts/</loc>
+    <lastmod>2020-07-07T12:19:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.guimaizi.com/tags/</loc>
+    <lastmod>2020-07-07T12:19:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.guimaizi.com/posts/idea/</loc>
+    <lastmod>2020-07-07T12:19:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.guimaizi.com/tags/%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2020-07-07T12:19:47+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.guimaizi.com/tags/chormium/</loc>
     <lastmod>2020-06-20T23:48:16+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://www.guimaizi.com/posts/news/chormium_develop/</loc>
-    <lastmod>2020-06-20T23:48:16+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.guimaizi.com/</loc>
-    <lastmod>2020-06-20T23:48:16+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.guimaizi.com/posts/</loc>
-    <lastmod>2020-06-20T23:48:16+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.guimaizi.com/tags/</loc>
     <lastmod>2020-06-20T23:48:16+08:00</lastmod>
   </url>
   

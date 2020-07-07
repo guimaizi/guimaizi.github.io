@@ -11,7 +11,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.guimaizi.com/" />
-<meta property="og:updated_time" content="2020-06-20T23:48:16+08:00" />
+<meta property="og:updated_time" content="2020-07-07T12:19:47+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="guimaizi&#39;s blog"/>
@@ -67,6 +67,43 @@
     
 
     <li class="first" >
+      <h1><a href="https://www.guimaizi.com/posts/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/" title="从前">从前</a></h1>
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+      
+
+      <p>title: burp漏扫插件 date: 2020-06-06T22:23:20+08:00 draft: true github:https://github.com/guimaizi/burp_lib
+介绍 burp应该是在座的诸位安全从业人员必用的测试工具,重放http/s请求包是burp最常用的功能. xss案例:
+&lt;?php $domain=$_POST['domain']; if($domain){ echo $domain; }else{ $html='&lt;form name=&quot;input&quot; action=&quot;&quot; method=&quot;post&quot;&gt; domain: &lt;input type=&quot;text&quot; name=&quot;dasdas&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domadsa112n&quot;&gt; &lt;input type=&quot;text&quot; name=&quot;domain&quot;&gt; &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt; &lt;/form&gt;'; echo $html; } ?&gt;  那么漏洞测试就是修改http请求包的参数.如sql、xss、命令执行测试,无非是在参数值后面追加payload，然后查看响应包判读是否存在漏洞,然而一个参数一个参数的测试真的很辛苦。
+如图，手工测到最后一个参数，才发现xss 不如写个脚本遍历参数值,让程序自动加上漏洞检测payload并且重放。
+点击触发扫描。
+判断响应包http响应大小与返回内容是否存在关键字，依次来判断漏洞是否存在。 请自行修改漏洞检测用payload,与分析响应包的内容。
+环境搭建 参考:Burpsuite插件的使用:https://www.freebuf.com/sectool/158005.html win10/8/7/xp
+python3.5+
+ pip install requests
+ 设置绝对路径:
+test_vul.py 25行
+burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jython 2.7.0 - Standalone Jar 版
+导入:
+2.导入我的漏洞检测</p>
+      
+      <a href="/posts/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/">Read more…</a>
+      
+    </li>
+    
+
+    <li >
       <h1><a href="https://www.guimaizi.com/posts/burp-jython-e6-8f-92-e4-bb-b6/" title="从前">从前</a></h1>
       <aside>
     <ul>
@@ -280,29 +317,6 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
 
       <p>title: 不赚最后一个铜板 url: 389.html id: 389 comments: false categories:
  a股/金融 政治/经济 date: 2019-01-14 12:41:06 tags:   我今天才知道啥叫 买的便宜也要卖的便宜！！！不赚最后一个铜板，记住了。</p>
-      
-    </li>
-    
-
-    <li >
-      <h1><a href="https://www.guimaizi.com/posts/e4-b8-93-e6-b3-a8/" title="从前">从前</a></h1>
-      <aside>
-    <ul>
-        <li>
-            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
-        </li>
-        
-
-        
-
-        <li>One minute read</li>
-    </ul>
-</aside>
-
-      
-
-      <p>title: 专注 url: 470.html id: 470 comments: false categories:
- 安全/代码 date: 2019-06-15 11:57:16 tags:   通常来说面临的数据量越大 发现有价值的数据几率越高。 但当数据量大于人类处理能力的最大值时，大量的数据却会成为负担，你无心深入每一个数据面，只是浅薄的测过就走。</p>
       
     </li>
     
