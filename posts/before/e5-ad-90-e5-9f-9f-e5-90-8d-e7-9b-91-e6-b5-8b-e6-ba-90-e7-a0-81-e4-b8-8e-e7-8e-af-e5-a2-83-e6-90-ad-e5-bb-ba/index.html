@@ -1,0 +1,236 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>guimaizi&#39;s blog</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="从前" />
+<meta property="og:description" content="title: 子域名监测源码与环境搭建 url: 360.html id: 360 comments: false categories:
+ 安全/代码 date: 2018-12-06 21:44:03 tags:   环境要求: ubuntu 64位
+python3 go mongodb chrome chromedriver
+代码下载链接: https://pan.baidu.com/s/18cR0wmJR7X3ukT6GQyynKQ 提取码: 26k6
+代码结构: browser.py 浏览器功能 获取html、执行js等 config.py 配置文件，一些需要的功能 mongodb_con.py mongo连接文件 start.py 开始爆破和爬取子域名获取http响应入mongo库 while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域名和爬取新域名 \subfinder 用来启动最初爆破子域名 \tmp 存放browser爬取的 href network请求的url \target 存放要监测域名的配置信息  注意 因为获取http响应的是基于chrome浏览器，模拟chrome访问，并且访问后进行多个javascript执行，所以访问每个url会比普通urllib时间要长很多，所以我添加了简易版chrome线程池以便进行多线程同步访问以便加快速度，默认是5个chrome同时模拟访问。
+环境搭建 必须执行 cd 进扫描器目录
+sudo sh install.sh
+ install.sh内代码:
+sudo apt-get install mongodb golang git python3 python3-pip xvfb unzip libxss1 libappindicator1 libindicator7 -y" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.guimaizi.com/posts/before/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-b5-8b-e6-ba-90-e7-a0-81-e4-b8-8e-e7-8e-af-e5-a2-83-e6-90-ad-e5-bb-ba/" />
+<meta property="article:published_time" content="2020-06-06T22:23:20+08:00" />
+<meta property="article:modified_time" content="2020-06-06T22:23:20+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从前"/>
+<meta name="twitter:description" content="title: 子域名监测源码与环境搭建 url: 360.html id: 360 comments: false categories:
+ 安全/代码 date: 2018-12-06 21:44:03 tags:   环境要求: ubuntu 64位
+python3 go mongodb chrome chromedriver
+代码下载链接: https://pan.baidu.com/s/18cR0wmJR7X3ukT6GQyynKQ 提取码: 26k6
+代码结构: browser.py 浏览器功能 获取html、执行js等 config.py 配置文件，一些需要的功能 mongodb_con.py mongo连接文件 start.py 开始爆破和爬取子域名获取http响应入mongo库 while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域名和爬取新域名 \subfinder 用来启动最初爆破子域名 \tmp 存放browser爬取的 href network请求的url \target 存放要监测域名的配置信息  注意 因为获取http响应的是基于chrome浏览器，模拟chrome访问，并且访问后进行多个javascript执行，所以访问每个url会比普通urllib时间要长很多，所以我添加了简易版chrome线程池以便进行多线程同步访问以便加快速度，默认是5个chrome同时模拟访问。
+环境搭建 必须执行 cd 进扫描器目录
+sudo sh install.sh
+ install.sh内代码:
+sudo apt-get install mongodb golang git python3 python3-pip xvfb unzip libxss1 libappindicator1 libindicator7 -y"/>
+
+<meta name="generator" content="Hugo 0.74.3" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://www.guimaizi.com/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">guimaizi&rsquo;s blog</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://github.com/guimaizi" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/guimaizi" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>从前</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <hr>
+<p>title: 子域名监测源码与环境搭建
+url: 360.html
+id: 360
+comments: false
+categories:</p>
+<ul>
+<li>安全/代码
+date: 2018-12-06 21:44:03
+tags:</li>
+</ul>
+<hr>
+<h3 id="环境要求">环境要求:</h3>
+<p>ubuntu 64位<br>
+python3 go mongodb chrome chromedriver</p>
+<p><strong><em>代码下载链接:</em></strong> <a href="https://pan.baidu.com/s/18cR0wmJR7X3ukT6GQyynKQ">https://pan.baidu.com/s/18cR0wmJR7X3ukT6GQyynKQ</a> 提取码: 26k6</p>
+<h3 id="代码结构">代码结构:</h3>
+<pre><code>browser.py  浏览器功能 获取html、执行js等  
+config.py 配置文件，一些需要的功能  
+mongodb_con.py mongo连接文件  
+start.py 开始爆破和爬取子域名获取http响应入mongo库  
+while_update.py 域名监测功能、遍历mongo库内数据 对比出变化域名和爬取新域名 
+\subfinder 用来启动最初爆破子域名
+\tmp 存放browser爬取的 href network请求的url    
+\target  存放要监测域名的配置信息  
+</code></pre>
+<h3 id="注意">注意</h3>
+<p>因为获取http响应的是基于chrome浏览器，模拟chrome访问，并且访问后进行多个javascript执行，所以访问每个url会比普通urllib时间要长很多，所以我添加了简易版chrome线程池以便进行多线程同步访问以便加快速度，默认是5个chrome同时模拟访问。</p>
+<h2 id="环境搭建">环境搭建</h2>
+<h4 id="必须执行">必须执行</h4>
+<p>cd 进扫描器目录<br>
+sudo sh install.sh</p>
+<blockquote>
+<p>install.sh内代码:<br>
+sudo apt-get install mongodb golang git python3 python3-pip xvfb unzip libxss1 libappindicator1 libindicator7 -y<br>
+sudo pip3 install selenium pymongo<br>
+wget <a href="https://dl.google.com/linux/direct/google-chrome-stable">https://dl.google.com/linux/direct/google-chrome-stable</a>_current_amd64.deb<br>
+sudo dpkg -i google-chrome*.deb<br>
+chmod +x chromedriver<br>
+sudo mv -f chromedriver /usr/local/share/chromedriver<br>
+sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver<br>
+sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver</p>
+</blockquote>
+<p>基本就可以启动扫描器。。。</p>
+<p>其他参考:</p>
+<h4 id="mongodb服务端搭建-会的大佬请绕过此步">mongodb服务端搭建 会的大佬请绕过此步</h4>
+<p>关闭mongo命令: sudo service mongodb stop</p>
+<pre><code class="language-1、首先修改mongodb的配置文件" data-lang="1、首先修改mongodb的配置文件">
+设置结束后启动mongo命令: sudo service mongodb start 进入mongo命令行: mongo 添加超级用户 use admin db.createUser({user:'admin',pwd:'123456aaa1xsda1A',roles:\[{role:'userAdminAnyDatabase',db:'admin'}\]}) db.auth('admin','123456aaa1xsda1A') 添加扫描器用户 use target\_domain db.createUser({user:'target',pwd:'123456aaaxsda1A',roles:\[{role:'readWrite',db:'target\_domain'}\]}) db.auth('target','123456aaaxsda1A')  
+</code></pre><h4 id="mongo客户端连接">mongo客户端连接：</h4>
+<p><img src="https://s1.ax1x.com/2018/12/06/F10Rbj.png" alt="F10Rbj.png"></p>
+<p>下载 <a href="https://www.robomongo.org/">https://www.robomongo.org/</a> 连接mongodb<br>
+常用mongo命令:<br>
+sudo service mongodb start | stop | restart<br>
+db.getCollection(&lsquo;qq_com&rsquo;).find({&ldquo;domain&rdquo;:{&ldquo;$regex&rdquo;:&quot;.3g.qq.com&rdquo;}}) 搜索<br>
+db.getCollection(&lsquo;qq_com&rsquo;).remove({&ldquo;domain&rdquo;:{&ldquo;$regex&rdquo;:&quot;.3g.qq.com&rdquo;}}) 删除<br>
+db.update({ &ldquo;state&rdquo; : 1} ,{$set:{&ldquo;state&rdquo;:0}}) 更新</p>
+<h4 id="设置ubuntu默认python3">设置Ubuntu默认python3</h4>
+<p>sudo update-alternatives &ndash;install /usr/bin/python python /usr/bin/python2 100<br>
+sudo update-alternatives &ndash;install /usr/bin/python python /usr/bin/python3 150</p>
+<h4 id="下载subfinder">下载subfinder</h4>
+<p>go get github.com/subfinder/subfinder</p>
+<h2 id="启动说明">启动说明</h2>
+<p>配置目标domain.json(请注意格式)</p>
+<p><img src="https://s1.ax1x.com/2018/12/06/F1BGon.png" alt="F1BGon.png"></p>
+<p>domain 为要收集监测的目标域名，格式必须是.domain.com，如：</p>
+<blockquote>
+<p>.qq.com<br>
+.163.com<br>
+.weibo.com</p>
+</blockquote>
+<p>Blacklist_domain 为子域名黑名单，比如46456.qzone.qq.com qq空间业务，进行.qzone.qq.com绕过收集。</p>
+<p>进入config.py配置文件，进行配置</p>
+<p><img src="https://s1.ax1x.com/2018/12/06/F1B8ds.png" alt="F1B8ds.png"></p>
+<p>然后执行python start.py 开始爆破、爬取子域名&hellip;域名数据决定运行时间(建议后台运行)。</p>
+<p>结果在robomongo查看:<br>
+<img src="https://s1.ax1x.com/2018/12/06/F1BjOg.png" alt="F1BjOg.png"></p>
+<p>start.py运行结束后。</p>
+<p>while_update.py进行库内子域名重新爬行后http响应对比,和爬取新域名。<br>
+参考:http://jinbitou.net/2016/02/24/1534.html<br>
+进行定时执行while_update设置，如:24小时执行一次，12小时执行一次，就形成子域名监测。<br>
+根据mongo库内time日期请自己设置新域名推送。</p>
+<hr>
+<h3 id="有钱的捧个钱场没钱的捧个人场多谢收看欢迎技术交流感谢赞助微信赞助码">有钱的捧个钱场，没钱的捧个人场，多谢收看，欢迎技术交流，感谢赞助,微信赞助码:</h3>
+<p><img src="https://s1.ax1x.com/2018/12/06/F1rCHH.png" alt="F1rCHH.png"></p>
+<hr>
+<p>参考资料:<br>
+<a href="https://www.jianshu.com/p/71bbe8acee01">https://www.jianshu.com/p/71bbe8acee01</a> Ubuntu 16.04版 Selenium环境搭建<br>
+<a href="http://npm.taobao.org/mirrors/chromedriver/">http://npm.taobao.org/mirrors/chromedriver/</a> chromedriver镜像<br>
+<a href="https://github.com/subfinder/subfinder">https://github.com/subfinder/subfinder</a> SubFinder<br>
+<a href="https://blog.csdn.net/lishanleilixin/article/details/82908423">https://blog.csdn.net/lishanleilixin/article/details/82908423</a> Linux(ubuntu18.04)切换python版本<br>
+<a href="https://www.cnblogs.com/shileima/p/7823434.html">https://www.cnblogs.com/shileima/p/7823434.html</a> mongodb远程环境搭建<br>
+<a href="https://www.robomongo.org/">https://www.robomongo.org/</a> robomongo客户端</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://www.guimaizi.com/posts/before/e5-ad-90-e5-9f-9f-e5-90-8d-e9-9a-8f-e6-9c-ba-e6-94-b6-e9-9b-86/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://www.guimaizi.com/posts/before/e5-ad-90-e5-9f-9f-e5-90-8d-e7-9b-91-e6-8e-a7/">从前 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://www.guimaizi.com/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

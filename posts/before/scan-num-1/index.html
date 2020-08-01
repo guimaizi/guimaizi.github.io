@@ -1,0 +1,202 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>guimaizi&#39;s blog</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="从前" />
+<meta property="og:description" content="title: 被动扫描器 date: 2020-03-07 17:50:33 tags: 扫描器 介绍 好久没有更技术文章了，今天更一个，算是造了一个轮子，花费了我很大精力，一个&quot;web安全被动常规漏洞扫描器&rdquo;，在全网范围内数万甚至数十万的web漏洞扫描器中，我的扫描器如何出众? 哈哈哈&hellip;可能也不是多么出众，但是我这种一线技术人员、一线实战派web漏洞挖掘选手觉得很实用，很实在，并不花里胡哨的。
+既然是web漏洞扫描器，那么就要基本了解下什么是web漏洞挖掘，说白了就是修改http/s请求包的数据。
+如图，很标椎的一个http请求包，也是很标准的一个xss漏洞，那么判断xss的方式就是修改name参数的值，然后判断http的响应内容，如此来判断xss的漏洞存在，通常我们会手工在name参数追加payload:
+&lt;img src=a onerror=alert(1)&gt; 判断响应内容来判断这是不是存在一个xss漏洞,或者追加&rsquo; 、and 1=1、or 1=1、and sleep(3)来判断是否存在sql注入等，而且他妈的很奇怪的是每次都是这样，流水线了，不胜其烦，我也是服了 我们是黑客啊，居然开始干流水线工作了，这不科学啊,太傻逼了,那么这个时候你就需要我这个扫描器了。
+效果视频: https://github.com/guimaizi/cloud/raw/test/20200307-190212967.mp4 {% dplayer &ldquo;url=https://github.com/guimaizi/cloud/raw/test/20200307-190212967.mp4&rdquo; &ldquo;loop=yes&rdquo; &ldquo;theme=#FADFA3&rdquo; &ldquo;autoplay=false&rdquo; &ldquo;token=tokendemo&rdquo; %}
+常规get\post 包括 Content-Type: application/json 、均可测。
+思路就是把burp的http请求包抓出来保存为tmp.json
+格式:
+{&quot;headers&quot;: { &quot;Origin&quot;: &quot;http://192.168.0.137&quot;, &quot;Cookie&quot;: &quot;PHPSESSID=fjkq8kiuutn3hkoj4uppsg30da&quot;, &quot;Accept&quot;: &quot;application/json, text/javascript, */*; q=0.01&quot;, &quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;, &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4009.0 Safari/537.36&quot;, &quot;Referer&quot;: &quot;http://192.168.0.137/12345.php&quot;, &quot;Connection&quot;: &quot;close&quot;, &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, &quot;Accept-Language&quot;: &quot;en-US, en;q=0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.guimaizi.com/posts/before/scan-num-1/" />
+<meta property="article:published_time" content="2020-06-06T22:23:20+08:00" />
+<meta property="article:modified_time" content="2020-06-06T22:23:20+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从前"/>
+<meta name="twitter:description" content="title: 被动扫描器 date: 2020-03-07 17:50:33 tags: 扫描器 介绍 好久没有更技术文章了，今天更一个，算是造了一个轮子，花费了我很大精力，一个&quot;web安全被动常规漏洞扫描器&rdquo;，在全网范围内数万甚至数十万的web漏洞扫描器中，我的扫描器如何出众? 哈哈哈&hellip;可能也不是多么出众，但是我这种一线技术人员、一线实战派web漏洞挖掘选手觉得很实用，很实在，并不花里胡哨的。
+既然是web漏洞扫描器，那么就要基本了解下什么是web漏洞挖掘，说白了就是修改http/s请求包的数据。
+如图，很标椎的一个http请求包，也是很标准的一个xss漏洞，那么判断xss的方式就是修改name参数的值，然后判断http的响应内容，如此来判断xss的漏洞存在，通常我们会手工在name参数追加payload:
+&lt;img src=a onerror=alert(1)&gt; 判断响应内容来判断这是不是存在一个xss漏洞,或者追加&rsquo; 、and 1=1、or 1=1、and sleep(3)来判断是否存在sql注入等，而且他妈的很奇怪的是每次都是这样，流水线了，不胜其烦，我也是服了 我们是黑客啊，居然开始干流水线工作了，这不科学啊,太傻逼了,那么这个时候你就需要我这个扫描器了。
+效果视频: https://github.com/guimaizi/cloud/raw/test/20200307-190212967.mp4 {% dplayer &ldquo;url=https://github.com/guimaizi/cloud/raw/test/20200307-190212967.mp4&rdquo; &ldquo;loop=yes&rdquo; &ldquo;theme=#FADFA3&rdquo; &ldquo;autoplay=false&rdquo; &ldquo;token=tokendemo&rdquo; %}
+常规get\post 包括 Content-Type: application/json 、均可测。
+思路就是把burp的http请求包抓出来保存为tmp.json
+格式:
+{&quot;headers&quot;: { &quot;Origin&quot;: &quot;http://192.168.0.137&quot;, &quot;Cookie&quot;: &quot;PHPSESSID=fjkq8kiuutn3hkoj4uppsg30da&quot;, &quot;Accept&quot;: &quot;application/json, text/javascript, */*; q=0.01&quot;, &quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;, &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4009.0 Safari/537.36&quot;, &quot;Referer&quot;: &quot;http://192.168.0.137/12345.php&quot;, &quot;Connection&quot;: &quot;close&quot;, &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, &quot;Accept-Language&quot;: &quot;en-US, en;q=0."/>
+
+<meta name="generator" content="Hugo 0.74.3" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://www.guimaizi.com/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">guimaizi&rsquo;s blog</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://github.com/guimaizi" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/guimaizi" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>从前</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T22:23:20&#43;08:00">Jun 6, 2020</time>
+        </li>
+        
+
+        
+
+        <li>One minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <hr>
+<h2 id="tags-扫描器">title: 被动扫描器
+date: 2020-03-07 17:50:33
+tags: 扫描器</h2>
+<h3 id="介绍">介绍</h3>
+<p>好久没有更技术文章了，今天更一个，算是造了一个轮子，花费了我很大精力，一个&quot;web安全被动常规漏洞扫描器&rdquo;，在全网范围内数万甚至数十万的web漏洞扫描器中，我的扫描器如何出众? 哈哈哈&hellip;可能也不是多么出众，但是我这种一线技术人员、一线实战派web漏洞挖掘选手觉得很实用，很实在，并不花里胡哨的。</p>
+<p>既然是web漏洞扫描器，那么就要基本了解下什么是web漏洞挖掘，说白了就是修改http/s请求包的数据。</p>
+<p><img src="https://raw.githubusercontent.com/guimaizi/cloud/test/img/20200307181557.png" alt=""></p>
+<p>如图，很标椎的一个http请求包，也是很标准的一个xss漏洞，那么判断xss的方式就是修改name参数的值，然后判断http的响应内容，如此来判断xss的漏洞存在，通常我们会手工在name参数追加payload:</p>
+<pre><code>&lt;img src=a onerror=alert(1)&gt;
+</code></pre><p>判断响应内容来判断这是不是存在一个xss漏洞,或者追加&rsquo; 、and 1=1、or 1=1、and sleep(3)来判断是否存在sql注入等，而且他妈的很奇怪的是每次都是这样，流水线了，不胜其烦，我也是服了 我们是黑客啊，居然开始干流水线工作了，这不科学啊,太傻逼了,那么这个时候你就需要我这个扫描器了。</p>
+<p>效果视频:  <a href="https://github.com/guimaizi/cloud/raw/test/20200307-190212967.mp4">https://github.com/guimaizi/cloud/raw/test/20200307-190212967.mp4</a>
+{% dplayer &ldquo;url=https://github.com/guimaizi/cloud/raw/test/20200307-190212967.mp4&rdquo; &ldquo;loop=yes&rdquo; &ldquo;theme=#FADFA3&rdquo; &ldquo;autoplay=false&rdquo; &ldquo;token=tokendemo&rdquo; %}</p>
+<p>常规get\post 包括 Content-Type: application/json 、均可测。</p>
+<p>思路就是把burp的http请求包抓出来保存为tmp.json</p>
+<p>格式:</p>
+<pre><code>{&quot;headers&quot;: 
+    {
+        &quot;Origin&quot;: &quot;http://192.168.0.137&quot;,
+         &quot;Cookie&quot;: &quot;PHPSESSID=fjkq8kiuutn3hkoj4uppsg30da&quot;,
+         &quot;Accept&quot;: &quot;application/json,
+         text/javascript,
+         */*; q=0.01&quot;,
+         &quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;,
+         &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+         like Gecko) Chrome/81.0.4009.0 Safari/537.36&quot;,
+         &quot;Referer&quot;: &quot;http://192.168.0.137/12345.php&quot;,
+         &quot;Connection&quot;: &quot;close&quot;,
+         &quot;Accept-Encoding&quot;: &quot;gzip,
+         deflate&quot;,
+         &quot;Accept-Language&quot;: &quot;en-US,
+        en;q=0.9&quot;,
+         &quot;Content-Length&quot;: &quot;85&quot;,
+         &quot;Content-Type&quot;: &quot;application/json&quot;
+    },
+     &quot;method&quot;: 1,
+     &quot;url&quot;: &quot;http://192.168.0.137:80/12345.php&quot;,
+     &quot;post&quot;: &quot;
+    {
+        \&quot;userName\&quot;:\&quot;asdas\&quot;,
+        \&quot;passWord\&quot;:\&quot;dsadsa\&quot;,
+        \&quot;type\&quot;:1,
+        \&quot;data\&quot;:
+        {
+            \&quot;aaaa\&quot;:\&quot;bbbb\&quot;,
+            \&quot;cccc\&quot;:11111
+        }
+    }
+    &quot;
+}
+</code></pre><p>然后通过脚本处理、追加payload后 进行测试漏洞。</p>
+<p>如果配合 <a href="https://github.com/mitmproxy/mitmproxy">mitmproxy</a>   那么就是个类似闭源工具<a href="https://github.com/chaitin/xray">xray</a> 的被动扫描器、如果你再配合上一个强大的爬虫，那就是个主动扫描器。</p>
+<p>反正开源的,你随意折腾,我没意见。</p>
+<p>github: <a href="https://github.com/guimaizi/testing_wave">https://github.com/guimaizi/testing_wave</a></p>
+<p>这么好的工具，有没有大爷大妈愿意赏我一碗鸡煲翅 wechat支付:</p>
+<p><img src="https://raw.githubusercontent.com/guimaizi/cloud/test/img/20200307192617.png" alt=""></p>
+<p>建议/反馈/问问题前 请先赏碗鸡煲翅&hellip;.</p>
+<p>联系方式WeChat :</p>
+<p><img src="https://raw.githubusercontent.com/guimaizi/cloud/test/img/20200307193002.jpg" alt=""></p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://www.guimaizi.com/posts/before/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/"><i class="fa fa-chevron-circle-left"></i> 从前</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://www.guimaizi.com/posts/before/python3-e8-af-ad-e9-9f-b3-e6-8f-90-e7-a4-ba-e8-82-a1-e7-a5-a8-e4-bb-b7-e6-a0-bc/">从前 <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://www.guimaizi.com/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
+

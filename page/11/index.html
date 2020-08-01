@@ -67,7 +67,7 @@
     
 
     <li class="first" >
-      <h1><a href="https://www.guimaizi.com/posts/aaaaaa/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/aaaaaa/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -92,7 +92,7 @@
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -123,13 +123,13 @@ burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jyth
 导入:
 2.导入我的漏洞检测</p>
       
-      <a href="/posts/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/">Read more…</a>
+      <a href="/posts/before/burp-e6-bc-8f-e6-89-ab-e6-8f-92-e4-bb-b6/">Read more…</a>
       
     </li>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/burp-jython-e6-8f-92-e4-bb-b6/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/burp-jython-e6-8f-92-e4-bb-b6/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -149,13 +149,13 @@ burp_vul_plugin 59行 1.下载http://www.jython.org/downloads.html Download Jyth
 # coding: utf-8 '&rsquo;&rsquo; @author: guimaizi '&rsquo;&rsquo; from burp import IBurpExtender from burp import IContextMenuFactory from burp import IBurpExtenderCallbacks from burp import IContextMenuInvocation from burp import IHttpRequestResponse from javax.swing import JMenuItem import os
 class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCallbacks(self, callbacks): self._actionName = &ldquo;test_vul&rdquo; self._helers = callbacks.getHelpers() self._callbacks = callbacks callbacks.setExtensionName(&ldquo;test_vul&rdquo;) callbacks.registerContextMenuFactory(self) return  def createMenuItems(self, invocation): menu = [] responses = invocation.getSelectedMessages() if len(responses) == 1: menu.</p>
       
-      <a href="/posts/burp-jython-e6-8f-92-e4-bb-b6/">Read more…</a>
+      <a href="/posts/before/burp-jython-e6-8f-92-e4-bb-b6/">Read more…</a>
       
     </li>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e3-80-8a-e7-99-bd-e8-9b-87-e7-bc-98-e8-b5-b7-e3-80-8b/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e3-80-8a-e7-99-bd-e8-9b-87-e7-bc-98-e8-b5-b7-e3-80-8b/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -177,7 +177,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e4-b8-80-e4-b8-aa-e8-be-85-e5-8a-a9-e5-b0-8f-e5-b7-a5-e5-85-b7/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e4-b8-80-e4-b8-aa-e8-be-85-e5-8a-a9-e5-b0-8f-e5-b7-a5-e5-85-b7/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -197,13 +197,13 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
  安全/代码 date: 2019-01-20 21:17:59 tags:   tool.html
 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt; &lt;style&gt; body{ margin:0 auto; width:600px; height:100px} #log{width:600px} #text{width:600px} &lt;/style&gt; &lt;script src='https://code.jquery.com/jquery-3.3.1.js'&gt;&lt;/script&gt; &lt;script src='/script/tool.js'&gt;&lt;/script&gt; &lt;script&gt; document.title='Tool'; $(document).ready(function(){ $(&quot;#decodeURI&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(decodeURIComponent(str)); }); $(&quot;#encodeURI&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(encodeURIComponent(str)); }); $(&quot;#Base64_encode&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(Base64.encode(str)); }); $(&quot;#Base64_decode&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(Base64.decode(str)); }); $(&quot;#random_key&quot;).click(function(){ $(&quot;#log&quot;).val(randomWord(false, 12)+'_'); }); $(&quot;#decToHex&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(decToHex(str)); }); $(&quot;#hexToDec&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(hexToDec(str)); }); $(&quot;#stringToHex16&quot;).</p>
       
-      <a href="/posts/e4-b8-80-e4-b8-aa-e8-be-85-e5-8a-a9-e5-b0-8f-e5-b7-a5-e5-85-b7/">Read more…</a>
+      <a href="/posts/before/e4-b8-80-e4-b8-aa-e8-be-85-e5-8a-a9-e5-b0-8f-e5-b7-a5-e5-85-b7/">Read more…</a>
       
     </li>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e4-b8-80-e5-88-87-e6-9c-89-e4-b8-ba-e6-b3-95/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e4-b8-80-e5-88-87-e6-9c-89-e4-b8-ba-e6-b3-95/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -226,7 +226,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e4-b8-80-e6-a3-b5-e6-a0-91/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e4-b8-80-e6-a3-b5-e6-a0-91/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -249,7 +249,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e4-b8-80-e7-9b-98-e4-b8-8a-e5-a5-bd-e7-9a-84-e9-9f-ad-e8-8f-9c/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e4-b8-80-e7-9b-98-e4-b8-8a-e5-a5-bd-e7-9a-84-e9-9f-ad-e8-8f-9c/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -277,7 +277,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e4-b8-87-e8-88-ac-e4-ba-ba-e7-94-9f/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e4-b8-87-e8-88-ac-e4-ba-ba-e7-94-9f/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -300,7 +300,7 @@ class BurpExtender(IBurpExtender, IContextMenuFactory): def registerExtenderCal
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e4-b8-8d-e8-a6-81-e5-b0-96-e5-8f-ab/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e4-b8-8d-e8-a6-81-e5-b0-96-e5-8f-ab/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>

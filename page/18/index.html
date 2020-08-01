@@ -67,7 +67,7 @@
     
 
     <li class="first" >
-      <h1><a href="https://www.guimaizi.com/posts/e9-87-91-e8-9e-8d-e5-8d-b1-e6-9c-ba/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e9-87-91-e8-9e-8d-e5-8d-b1-e6-9c-ba/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -122,7 +122,7 @@
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/e9-87-91-e8-9e-8d/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/e9-87-91-e8-9e-8d/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -152,7 +152,7 @@
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/hello-world-1/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/hello-world-1/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -180,7 +180,7 @@ twitter: @guimaizi E-mail : admin@guimaizi.com</p>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/hey-2019/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/hey-2019/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -222,7 +222,7 @@ twitter: @guimaizi E-mail : admin@guimaizi.com</p>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/my-first-post/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/my-first-post/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -244,7 +244,7 @@ twitter: @guimaizi E-mail : admin@guimaizi.com</p>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/ncov-2019/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/ncov-2019/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -269,7 +269,7 @@ twitter: @guimaizi E-mail : admin@guimaizi.com</p>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/puppeteer-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/puppeteer-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -290,13 +290,13 @@ twitter: @guimaizi E-mail : admin@guimaizi.com</p>
  关于puppeteer的并发方案: node代码:
 const puppeteer = require('puppeteer'); async function process_page(page){ //page.evaluate(() =&gt; alert(document.domain)); await page.on('dialog', async dialog =&gt; { await dialog.dismiss();}) console.log(page.url()); await page.close(); } async function process_queue(browser,page,list_url){ await page.evaluate(list_url =&gt; { for(i=0;i&lt;list_url.length;i++){ window.open(list_url[i]); } return 1; },list_url); while(allPages=await browser.pages(),allPages.length-2&lt;list_url.length){ await page.waitFor(3000); } for(j=0;j&lt;allPages.length;j++){ if (allPages[j]!=page){ process_page(allPages[j]); } } } (async () =&gt; { try { const list_url=['https://www.</p>
       
-      <a href="/posts/puppeteer-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/">Read more…</a>
+      <a href="/posts/before/puppeteer-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/">Read more…</a>
       
     </li>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/python3-e8-af-ad-e9-9f-b3-e6-8f-90-e7-a4-ba-e8-82-a1-e7-a5-a8-e4-bb-b7-e6-a0-bc/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/python3-e8-af-ad-e9-9f-b3-e6-8f-90-e7-a4-ba-e8-82-a1-e7-a5-a8-e4-bb-b7-e6-a0-bc/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -317,13 +317,13 @@ const puppeteer = require('puppeteer'); async function process_page(page){ //pag
 # coding: utf-8 '&rsquo;&rsquo;
 @author: rasca1 '&rsquo;&rsquo; import tushare as ts,subprocess,pyttsx3 from asyncio.tasks import sleep class Stock_reporting: def to_chinese(self,number): &quot;&rdquo;&rdquo; convert integer to Chinese numeral &quot;&rdquo;&rdquo; chinese_numeral_dict = { &lsquo;0&rsquo;: &lsquo;零&rsquo;, &lsquo;1&rsquo;: &lsquo;一&rsquo;, &lsquo;2&rsquo;: &lsquo;二&rsquo;, &lsquo;3&rsquo;: &lsquo;三&rsquo;, &lsquo;4&rsquo;: &lsquo;四&rsquo;, &lsquo;5&rsquo;: &lsquo;五&rsquo;, &lsquo;6&rsquo;: &lsquo;六&rsquo;, &lsquo;7&rsquo;: &lsquo;七&rsquo;, &lsquo;8&rsquo;: &lsquo;八&rsquo;, &lsquo;9&rsquo;: &lsquo;九&rsquo; } chinese_unit_map = [('&rsquo;, &lsquo;十&rsquo;, &lsquo;百&rsquo;, &lsquo;千&rsquo;), (&lsquo;万&rsquo;, &lsquo;十万&rsquo;, &lsquo;百万&rsquo;, &lsquo;千万&rsquo;), (&lsquo;亿&rsquo;, &lsquo;十亿&rsquo;, &lsquo;百亿&rsquo;, &lsquo;千亿&rsquo;), (&lsquo;兆&rsquo;, &lsquo;十兆&rsquo;, &lsquo;百兆&rsquo;, &lsquo;千兆&rsquo;), (&lsquo;吉&rsquo;, &lsquo;十吉&rsquo;, &lsquo;百吉&rsquo;, &lsquo;千吉&rsquo;)] chinese_unit_sep = [&lsquo;万&rsquo;, &lsquo;亿&rsquo;, &lsquo;兆&rsquo;, &lsquo;吉&rsquo;] reversed_n_string = reversed(str(number)) result_lst = [] unit = 0 for integer in reversed_n_string: if integer is not &lsquo;0&rsquo;: result_lst.</p>
       
-      <a href="/posts/python3-e8-af-ad-e9-9f-b3-e6-8f-90-e7-a4-ba-e8-82-a1-e7-a5-a8-e4-bb-b7-e6-a0-bc/">Read more…</a>
+      <a href="/posts/before/python3-e8-af-ad-e9-9f-b3-e6-8f-90-e7-a4-ba-e8-82-a1-e7-a5-a8-e4-bb-b7-e6-a0-bc/">Read more…</a>
       
     </li>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/scan-num-1/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/scan-num-1/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -349,13 +349,13 @@ const puppeteer = require('puppeteer'); async function process_page(page){ //pag
 格式:
 {&quot;headers&quot;: { &quot;Origin&quot;: &quot;http://192.168.0.137&quot;, &quot;Cookie&quot;: &quot;PHPSESSID=fjkq8kiuutn3hkoj4uppsg30da&quot;, &quot;Accept&quot;: &quot;application/json, text/javascript, */*; q=0.01&quot;, &quot;X-Requested-With&quot;: &quot;XMLHttpRequest&quot;, &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4009.0 Safari/537.36&quot;, &quot;Referer&quot;: &quot;http://192.168.0.137/12345.php&quot;, &quot;Connection&quot;: &quot;close&quot;, &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, &quot;Accept-Language&quot;: &quot;en-US, en;q=0.</p>
       
-      <a href="/posts/scan-num-1/">Read more…</a>
+      <a href="/posts/before/scan-num-1/">Read more…</a>
       
     </li>
     
 
     <li >
-      <h1><a href="https://www.guimaizi.com/posts/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" title="从前">从前</a></h1>
+      <h1><a href="https://www.guimaizi.com/posts/before/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/" title="从前">从前</a></h1>
       <aside>
     <ul>
         <li>
@@ -375,7 +375,7 @@ const puppeteer = require('puppeteer'); async function process_page(page){ //pag
  安全/代码 date: 2019-10-24 21:20:04 tags:   selenium异步并发方案 python3版
 # coding: utf-8 from selenium import webdriver from selenium.webdriver.chrome.options import Options from selenium.common.exceptions import TimeoutException from selenium.webdriver.support.ui import WebDriverWait chrome_options = Options() chrome_options.add_argument('--headless') chrome_options.binary_location = r'%s'%&quot;/Applications/Chromium.app/Contents/MacOS/Chromium&quot; driver = webdriver.Chrome(executable_path=&quot;/Users/guimaizi/hack-tool/chromedriver&quot;,options=chrome_options) list_url=['https://www.w3school.com.cn/js/js_loop_for.asp','http://www.voidcn.com/article/p-stvclize-bte.html', 'https://xiday.com/2019/09/21/puppeteer-run-js/','https://im.qq.com/','http://192.168.0.225/vul/frame221.html','https://en.mail.qq.com/','https://www.1688.com/', 'https://github.com/','https://www.baidu.com/','http://www.guimaizi.com/','https://fanyi.baidu.com/?aldtype=16047#auto/zh','http://es6.ruanyifeng.com/#docs/promise', 'https://security.alibaba.com/','https://security.alipay.com/home.htm','https://security.pingan.com/','https://bugbounty.huawei.com/hbp/#/home','https://www.youtube.com/watch?v=N0bypyMIt6w'] driver.get('http://www.qq.com') for url in list_url: js=&quot;window.open('%s')&quot;%url driver.execute_script(js) windows = driver.window_handles for num in windows: try: driver.switch_to.window(num) driver.set_script_timeout(5) #driver.</p>
       
-      <a href="/posts/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/">Read more…</a>
+      <a href="/posts/before/selenium-e5-bc-82-e6-ad-a5-e5-b9-b6-e5-8f-91-e6-96-b9-e6-a1-88/">Read more…</a>
       
     </li>
     
