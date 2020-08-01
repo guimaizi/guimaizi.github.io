@@ -24,7 +24,7 @@
 # coding: utf-8 &#39;&rsquo;&rsquo;
 @author: rasca1 &#39;&rsquo;&rsquo; import tushare as ts,subprocess,pyttsx3 from asyncio.tasks import sleep class Stock_reporting: def to_chinese(self,number): &quot;&rdquo;&rdquo; convert integer to Chinese numeral &quot;&rdquo;&rdquo; chinese_numeral_dict = { &lsquo;0&rsquo;: &lsquo;零&rsquo;, &lsquo;1&rsquo;: &lsquo;一&rsquo;, &lsquo;2&rsquo;: &lsquo;二&rsquo;, &lsquo;3&rsquo;: &lsquo;三&rsquo;, &lsquo;4&rsquo;: &lsquo;四&rsquo;, &lsquo;5&rsquo;: &lsquo;五&rsquo;, &lsquo;6&rsquo;: &lsquo;六&rsquo;, &lsquo;7&rsquo;: &lsquo;七&rsquo;, &lsquo;8&rsquo;: &lsquo;八&rsquo;, &lsquo;9&rsquo;: &lsquo;九&rsquo; } chinese_unit_map = [(&#39;&rsquo;, &lsquo;十&rsquo;, &lsquo;百&rsquo;, &lsquo;千&rsquo;), (&lsquo;万&rsquo;, &lsquo;十万&rsquo;, &lsquo;百万&rsquo;, &lsquo;千万&rsquo;), (&lsquo;亿&rsquo;, &lsquo;十亿&rsquo;, &lsquo;百亿&rsquo;, &lsquo;千亿&rsquo;), (&lsquo;兆&rsquo;, &lsquo;十兆&rsquo;, &lsquo;百兆&rsquo;, &lsquo;千兆&rsquo;), (&lsquo;吉&rsquo;, &lsquo;十吉&rsquo;, &lsquo;百吉&rsquo;, &lsquo;千吉&rsquo;)] chinese_unit_sep = [&lsquo;万&rsquo;, &lsquo;亿&rsquo;, &lsquo;兆&rsquo;, &lsquo;吉&rsquo;] reversed_n_string = reversed(str(number)) result_lst = [] unit = 0 for integer in reversed_n_string: if integer is not &lsquo;0&rsquo;: result_lst."/>
 
-<meta name="generator" content="Hugo 0.72.0" />
+<meta name="generator" content="Hugo 0.74.3" />
     
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />

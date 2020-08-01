@@ -24,7 +24,7 @@ mysql报错注入 &lt;?php if( isset( $_REQUEST[ &#39;Submit&#39; ] ) ) { // Get
 database(),user()
 mysql报错注入 &lt;?php if( isset( $_REQUEST[ &#39;Submit&#39; ] ) ) { // Get input $id = $_REQUEST[ &#39;id&#39; ]; // Check database $query = &quot;SELECT first_name, last_name FROM users WHERE user_id = &#39;$id&#39;;&quot;; $result = mysql_query( $query ) or die( &#39;&lt;pre&gt;&#39; . mysql_error() . &#39;&lt;/pre&gt;&#39; ); // Get results $num = mysql_numrows( $result ); $i = 0; while( $i &lt; $num ) { // Get values $first = mysql_result( $result, $i, &quot;first_name&quot; ); $last = mysql_result( $result, $i, &quot;last_name&quot; ); // Feedback for end user echo &quot;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&quot;; // Increase loop count $i&#43;&#43;; } mysql_close(); } ?"/>
 
-<meta name="generator" content="Hugo 0.72.0" />
+<meta name="generator" content="Hugo 0.74.3" />
     
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />

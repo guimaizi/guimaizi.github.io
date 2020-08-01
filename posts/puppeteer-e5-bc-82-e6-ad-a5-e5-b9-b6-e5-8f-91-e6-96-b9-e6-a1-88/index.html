@@ -24,7 +24,7 @@ const puppeteer = require(&#39;puppeteer&#39;); async function process_page(page
  关于puppeteer的并发方案: node代码:
 const puppeteer = require(&#39;puppeteer&#39;); async function process_page(page){ //page.evaluate(() =&gt; alert(document.domain)); await page.on(&#39;dialog&#39;, async dialog =&gt; { await dialog.dismiss();}) console.log(page.url()); await page.close(); } async function process_queue(browser,page,list_url){ await page.evaluate(list_url =&gt; { for(i=0;i&lt;list_url.length;i&#43;&#43;){ window.open(list_url[i]); } return 1; },list_url); while(allPages=await browser.pages(),allPages.length-2&lt;list_url.length){ await page.waitFor(3000); } for(j=0;j&lt;allPages.length;j&#43;&#43;){ if (allPages[j]!=page){ process_page(allPages[j]); } } } (async () =&gt; { try { const list_url=[&#39;https://www."/>
 
-<meta name="generator" content="Hugo 0.72.0" />
+<meta name="generator" content="Hugo 0.74.3" />
     
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />

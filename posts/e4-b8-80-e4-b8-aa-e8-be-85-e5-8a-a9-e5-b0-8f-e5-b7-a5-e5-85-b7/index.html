@@ -22,7 +22,7 @@
  安全/代码 date: 2019-01-20 21:17:59 tags:   tool.html
 &lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt; &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot;&gt; &lt;style&gt; body{ margin:0 auto; width:600px; height:100px} #log{width:600px} #text{width:600px} &lt;/style&gt; &lt;script src=&#39;https://code.jquery.com/jquery-3.3.1.js&#39;&gt;&lt;/script&gt; &lt;script src=&#39;/script/tool.js&#39;&gt;&lt;/script&gt; &lt;script&gt; document.title=&#39;Tool&#39;; $(document).ready(function(){ $(&quot;#decodeURI&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(decodeURIComponent(str)); }); $(&quot;#encodeURI&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(encodeURIComponent(str)); }); $(&quot;#Base64_encode&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(Base64.encode(str)); }); $(&quot;#Base64_decode&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(Base64.decode(str)); }); $(&quot;#random_key&quot;).click(function(){ $(&quot;#log&quot;).val(randomWord(false, 12)&#43;&#39;_&#39;); }); $(&quot;#decToHex&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(decToHex(str)); }); $(&quot;#hexToDec&quot;).click(function(){ str=$(&quot;#text&quot;).val(); $(&quot;#log&quot;).val(hexToDec(str)); }); $(&quot;#stringToHex16&quot;)."/>
 
-<meta name="generator" content="Hugo 0.72.0" />
+<meta name="generator" content="Hugo 0.74.3" />
     
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
